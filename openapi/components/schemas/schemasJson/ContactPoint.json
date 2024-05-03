@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ContactPoint",
+    "description": "A contact point\u2014for example, a culture institute social media.",
+    "type": "object",
+    "properties": {
+        "areaServed": {
+            "type": "string"
+        },
+        "availableLanguage": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "language": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "contactType": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string",
+            "format": "email"
+        },
+        "hoursAvailable": {
+            "type": "string"
+        },
+        "url": {
+            "type": "string",
+            "format": "uri"
+        },
+        "description": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "telephone": {
+            "type": "string",
+            "pattern": "^\\+?[1-9]\\d{1,14}$"
+        },
+        "faxNumber": {
+            "type": "string",
+            "pattern": "^\\+?[1-9]\\d{1,14}$"
+        }
+    },
+    "required": [
+        "name"
+    ]
+}

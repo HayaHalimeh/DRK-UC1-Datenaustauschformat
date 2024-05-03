@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ImageObject",
+    "description": "An image file.",
+    "type": "object",
+    "properties": {
+        "MediaObjectID": {
+            "type": "string",
+            "pattern": "id_region_PlattformName_entityName_originalID"
+        },
+        "caption": {
+            "type": "string"
+        },
+        "height": {
+            "type": "string",
+            "description": "Height of the image in pixels."
+        },
+        "width": {
+            "type": "string",
+            "description": "Width of the image in pixels."
+        },
+        "image": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "ImageObject"
+                        },
+                        "content": {
+                            "type": "string"
+                        },
+                        "url": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "url"
+                    ]
+                },
+                {
+                    "type": "string",
+                    "format": "uri"
+                }
+            ]
+        }
+    },
+    "required": [
+        "MediaObjectID"
+    ]
+}

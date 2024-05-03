@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "VideoObject",
+    "description": "An object representing a video.",
+    "type": "object",
+    "properties": {
+        "MediaObjectID": {
+            "type": "string",
+            "pattern": "id_region_PlattformName_entityName_originalID"
+        },
+        "caption": {
+            "type": "string"
+        },
+        "transcript": {
+            "type": "string"
+        },
+        "videoQuality": {
+            "type": "string",
+            "pattern": "^\\d+p$"
+        },
+        "endTime": {
+            "type": "string",
+            "pattern": "^(?:[01]\\d|2[0-3]):(?:[0-5]\\d):(?:[0-5]\\d)$  // ISO 8601 time format"
+        },
+        "duration": {
+            "type": "string",
+            "pattern": "^(?:[01]\\d|2[0-3]):(?:[0-5]\\d):(?:[0-5]\\d)$  // Assuming ISO 8601 time format for consistency"
+        },
+        "startTime": {
+            "type": "string",
+            "pattern": "^(?:[01]\\d|2[0-3]):(?:[0-5]\\d):(?:[0-5]\\d)$  // ISO 8601 time format"
+        },
+        "video": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "VideoObject"
+                        },
+                        "content": {
+                            "type": "string"
+                        },
+                        "url": {
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "url"
+                    ]
+                },
+                {
+                    "type": "string",
+                    "format": "uri"
+                }
+            ]
+        }
+    },
+    "required": [
+        "MediaObjectID",
+        "startTime",
+        "duration",
+        "endTime",
+        "video"
+    ]
+}

@@ -1,0 +1,99 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: CreativeWork
+description: 'A creative work: an article, essay, painting, software application,
+  etc.'
+type: object
+properties:
+  CreativeWorkID:
+    oneOf:
+      - type: object
+        properties:
+          type:
+            const: PropertyValue
+          value:
+            type: string
+        required:
+          - type
+          - value
+      - type: string
+        description: id_region_PlattformName_entityName_originalID
+  abstract:
+    type: string
+  audience:
+    type: array
+    items:
+      type: string
+  copyrightHolder:
+    oneOf:
+      - type: string
+      - type: object
+        oneOf:
+          - $ref: Person.yaml
+          - $ref: Organization.yaml
+  copyrightNotice:
+    type: string
+  copyrightYear:
+    type: string
+    description: date-time ISO 8601
+  countryOfOrigin:
+    type: string
+  creativeWorkStatus:
+    type: string
+  dateCreated:
+    type: string
+    description: date-time ISO 8601
+  dateModified:
+    type: string
+    description: date-time ISO 8601
+  datePublished:
+    type: string
+    description: date-time ISO 8601
+  genre:
+    type: array
+    items:
+      type: string
+  headline:
+    type: string
+  inLanguage:
+    type: array
+    items:
+      type: string
+  keywords:
+    type: array
+    items:
+      type: string
+  license:
+    type: string
+  recordedAt:
+    oneOf:
+      - type: string
+      - type: object
+        properties:
+          eventID:
+            type: string
+          eventName:
+            type: string
+        required:
+          - eventID
+          - eventName
+  alternateName:
+    type: string
+  description:
+    type: string
+  name:
+    type: string
+  sameAs:
+    type: array
+    items: 
+      type: string
+  url:
+    type: string
+    format: uri
+  managedBy:
+    type: object
+    $ref: ManagedBy.yaml
+required:
+  - CreativeWorkID
+  - countryOfOrigin
+  - description
+  - name

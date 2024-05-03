@@ -1,0 +1,195 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MediaObject",
+    "description": "A media object, such as an image, video, or audio object.",
+    "type": "object",
+    "properties": {
+        "MediaObjectID": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "PropertyValue"
+                        },
+                        "value": {
+                            "type": "string",
+                            "pattern": "id_region_PlattformName_entityName_originalID"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value"
+                    ]
+                },
+                {
+                    "type": "string",
+                    "pattern": "id_region_PlattformName_entityName_originalID"
+                }
+            ]
+        },
+        "encodingFormat": {
+            "type": "string"
+        },
+        "accessMode": {
+            "type": "string"
+        },
+        "archivedAt": {
+            "type": "string",
+            "format": "uri"
+        },
+        "comment": {
+            "type": "string"
+        },
+        "copyrightHolder": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "enum": [
+                                "Organization",
+                                "Person"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "type"
+                    ]
+                }
+            ]
+        },
+        "copyrightNotice": {
+            "type": "string"
+        },
+        "copyrightYear": {
+            "type": "integer"
+        },
+        "countryOfOrigin": {
+            "type": "string"
+        },
+        "genre": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "inLanguage": {
+            "type": "string"
+        },
+        "keywords": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "translationOfWork": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "workType": {
+                        "type": "string",
+                        "enum": [
+                            "CreativeWork",
+                            "MediaObject"
+                        ]
+                    },
+                    "details": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "workType",
+                    "details"
+                ]
+            }
+        },
+        "description": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "sameAs": {
+            "type": "string",
+            "format": "uri"
+        },
+        "productionCompany": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "companyName": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "companyName",
+                    "role"
+                ]
+            }
+        },
+        "contentUrl": {
+            "type": "string",
+            "format": "uri"
+        },
+        "recordedAt": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "eventID": {
+                            "type": "string"
+                        },
+                        "eventName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "eventID",
+                        "eventName"
+                    ]
+                }
+            ]
+        },
+        "managedBy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "managerId": {
+                        "type": "string",
+                        "pattern": "id_region_PlattformName_entityName_originalID"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "managerId",
+                    "role"
+                ]
+            }
+        }
+    },
+    "required": [
+        "MediaObjectID",
+        "encodingFormat",
+        "name",
+        "contentUrl"
+    ]
+}

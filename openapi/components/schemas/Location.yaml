@@ -1,0 +1,49 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Location
+description: A location
+type: object
+properties:
+  isAccessibleForFree:
+    type: boolean
+  maximumAttendeeCapacity:
+    type: integer
+  openingHoursSpecification:
+    type: object
+    $ref: OpeningHoursSpecification.yaml
+  publicAccess:
+    type: boolean
+  smokingAllowed:
+    type: boolean
+  alternateName:
+    type: string
+  description:
+    type: string
+  name:
+    type: string
+  sameAs:
+    type: array
+    items: 
+      type: string 
+  address:
+    type: object
+    $ref: PostalAddress.yaml
+  maximumPhysicalAttendeeCapacity:
+    type: integer
+  maximumVirtualAttendeeCapacity:
+    type: integer
+  remainingAttendeeCapacity:
+    type: integer
+  contactPoint:
+    type: object
+    $ref: ContactPoint.yaml
+  locationType:
+    type: string
+  accessibility:
+    type: array
+    items:
+      type: string
+required:
+  - isAccessibleForFree
+  - address
+  - name
+  - accessibility

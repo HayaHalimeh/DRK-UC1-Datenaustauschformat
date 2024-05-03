@@ -1,0 +1,31 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ListItem",
+    "description": "A ListItem component",
+    "type": "object",
+    "properties": {
+        "item": {
+            "type": "object",
+            "properties": {
+                "@type": {
+                    "const": "Thing"
+                }
+            },
+            "required": [
+                "@type"
+            ]
+        },
+        "description": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "position": {
+            "type": "integer"
+        }
+    },
+    "required": [
+        "item"
+    ]
+}

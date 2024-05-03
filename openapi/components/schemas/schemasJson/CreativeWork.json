@@ -1,0 +1,179 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CreativeWork",
+    "description": "A creative work: an article, essay, painting, software application, etc.",
+    "type": "object",
+    "properties": {
+        "CreativeWorkID": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "PropertyValue"
+                        },
+                        "value": {
+                            "type": "string",
+                            "pattern": "id_region_PlattformName_entityName_originalID"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value"
+                    ]
+                },
+                {
+                    "type": "string",
+                    "pattern": "id_region_PlattformName_entityName_originalID"
+                }
+            ]
+        },
+        "abstract": {
+            "type": "string"
+        },
+        "audience": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "copyrightHolder": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "enum": [
+                                "Person",
+                                "Organization"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "type"
+                    ]
+                }
+            ]
+        },
+        "copyrightNotice": {
+            "type": "string"
+        },
+        "copyrightYear": {
+            "type": "string",
+            "pattern": "^\\d{4}$"
+        },
+        "countryOfOrigin": {
+            "type": "string"
+        },
+        "creativeWorkStatus": {
+            "type": "string"
+        },
+        "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "dateModified": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "datePublished": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "genre": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "headline": {
+            "type": "string"
+        },
+        "inLanguage": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "keywords": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "license": {
+            "type": "string"
+        },
+        "recordedAt": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "eventID": {
+                            "type": "string"
+                        },
+                        "eventName": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "eventID",
+                        "eventName"
+                    ]
+                }
+            ]
+        },
+        "alternateName": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "sameAs": {
+            "type": "string",
+            "format": "uri"
+        },
+        "url": {
+            "type": "string",
+            "format": "uri"
+        },
+        "managedBy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "managerId": {
+                        "type": "string",
+                        "pattern": "id_region_PlattformName_entityName_originalID"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "managerId",
+                    "role"
+                ]
+            }
+        }
+    },
+    "required": [
+        "CreativeWorkID",
+        "countryOfOrigin",
+        "description",
+        "name"
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PostalAddress",
+    "description": "PostalAddress",
+    "type": "object",
+    "properties": {
+        "PostalAddress": {
+            "type": "object",
+            "properties": {
+                "streetAddress": {
+                    "type": "string"
+                },
+                "postalCode": {
+                    "type": "string"
+                },
+                "addressLocality": {
+                    "type": "string"
+                },
+                "addressRegion": {
+                    "type": "string"
+                },
+                "addressCountry": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "string",
+                    "description": "Latitude must be in WGS 84 format"
+                },
+                "longitude": {
+                    "type": "string",
+                    "description": "Longitude must be in WGS 84 format"
+                }
+            },
+            "required": [
+                "streetAddress",
+                "postalCode",
+                "addressLocality",
+                "addressCountry"
+            ]
+        }
+    }
+}

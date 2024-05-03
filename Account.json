@@ -1,0 +1,28 @@
+{
+    "accountID": "id_region_PlattformName_entityName_originalID",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "activeSince": "2023-04-15T09:00:00Z",
+    "address": {
+      "streetAddress": "1234 Main St",
+      "postalCode": "12345",
+      "addressLocality": "Springfield",
+      "addressRegion": "SomeState",
+      "addressCountry": "USA",
+      "latitude": "40.7128N",
+      "longitude": "74.0060W"
+    },
+    "managedBy": {
+      "identifier": "id_region_PlattformName_entityName_originalID",
+      "dateCreated": "2022-12-01T12:00:00Z",
+      "createdBy": "Jane Smith",
+      "dateModified": "2023-01-20T14:30:00Z",
+      "modifiedBy": "Jane Smith",
+      "importedFromProject": "Project XYZ",
+      "deleted": "false",
+      "visible": "true",
+      "department": "Development",
+      "managerName": "Jane Smith"
+    }
+  }
+  

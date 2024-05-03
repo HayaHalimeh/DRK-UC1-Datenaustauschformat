@@ -1,0 +1,176 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Review",
+    "description": "A review of an item - for example, a restaurant, movie, or store.",
+    "type": "object",
+    "properties": {
+        "ReviewID": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "PropertyValue"
+                        },
+                        "value": {
+                            "type": "string",
+                            "pattern": "id_region_PlattformName_entityName_originalID"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value"
+                    ]
+                },
+                {
+                    "type": "string",
+                    "pattern": "id_region_PlattformName_entityName_originalID"
+                }
+            ]
+        },
+        "reviewAspect": {
+            "type": "string"
+        },
+        "reviewBody": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "mediaType": {
+                            "type": "string"
+                        },
+                        "content": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "mediaType",
+                        "content"
+                    ]
+                }
+            ]
+        },
+        "ratingValue": {
+            "type": "number"
+        },
+        "reviewExplanation": {
+            "type": "string"
+        },
+        "author": {
+            "type": "object",
+            "properties": {
+                "customerID": {
+                    "type": "string",
+                    "pattern": "id_region_PlattformName_entityName_originalID"
+                },
+                "profile": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "details": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "details"
+                    ]
+                }
+            },
+            "required": [
+                "customerID",
+                "profile"
+            ]
+        },
+        "dateCreated": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "dateModified": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "inLanguage": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "mentions": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "url": {
+            "type": "string",
+            "format": "uri"
+        },
+        "itemReviewed": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "Event"
+                        },
+                        "details": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "details"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "TouristAttraction"
+                        },
+                        "details": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "details"
+                    ]
+                }
+            ]
+        },
+        "managedBy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "managerId": {
+                        "type": "string",
+                        "pattern": "id_region_PlattformName_entityName_originalID"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "managerId",
+                    "role"
+                ]
+            }
+        }
+    },
+    "required": [
+        "ReviewID",
+        "reviewBody",
+        "ratingValue",
+        "author",
+        "dateCreated",
+        "itemReviewed"
+    ]
+}

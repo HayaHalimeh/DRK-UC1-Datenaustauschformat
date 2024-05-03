@@ -1,0 +1,80 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Article
+description: An article is a piece of written work published in a print or electronic
+  medium.
+type: object
+properties:
+  ArticleID:
+    type: string
+    description:  id_region_PlattformName_entityName_originalID
+  articleBody:
+    type: array
+    items:
+      oneOf: 
+        - $ref: TextObject.yaml
+        - $ref: AudioObject.yaml
+        - $ref: VideoObject.yaml
+        - $ref: ImageObject.yaml
+    
+  speakable:
+    type: string
+    format: uri        
+  copyrightHolder:
+    oneOf:
+      - type: string
+      - type: object
+        properties:
+          name:
+            type: string
+          type:
+            enum:
+              - Person
+              - Organization
+        required:
+          - name
+          - type
+  copyrightNotice:
+    type: string
+  copyrightYear:
+    type: string
+  genre:
+    type: array
+    items:
+      type: string
+  headline:
+    type: string
+  inLanguage:
+    type: string
+  isAccessibleForFree:
+    type: boolean
+  keywords:
+    type: array
+    items:
+      type: string
+  license:
+    type: string
+    format: uri
+  translationOfWork:
+    type: array
+    items:
+      type: object
+      oneOf: 
+        - $ref: CreativeWork.yaml
+        - $ref: Article.yaml
+
+        - type: string
+          description: URL or ID of the translated work
+  sameAs:
+    type: string
+    format: uri
+  url:
+    type: string
+    format: uri
+  managedBy:
+    type: object
+    $ref: ManagedBy.yaml
+required:
+  - ArticleID
+  - articleBody
+  - name
+  - url

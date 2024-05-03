@@ -1,0 +1,35 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: AudioObject
+description: An audio file.
+type: object
+
+properties:
+  mediaObjectAttributes:
+    allOf: 
+      - $ref: MediaObject.yaml
+      - type: object
+  caption:
+    type: string
+  transcript:
+    type: string
+  endTime:
+    type: string
+    description:  ISO 8601 time format
+  duration:
+    type: string
+    description: ISO 8601 time format
+  startTime:
+    type: string
+    description:  ISO 8601 time format
+  audio:
+    oneOf:
+      - type: object
+        properties:
+          content:
+            description: "Direct embedded audio content. This field is expected to carry raw audio data. Note: Actual implementation should handle this property as raw binary data, which is not typically supported directly in JSON. Consider using application-specific encoding or structuring."
+        required:
+          - content
+      - type: string
+        format: uri
+required:
+  - audio

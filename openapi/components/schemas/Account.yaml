@@ -1,0 +1,30 @@
+$schema: http://json-schema.org/draft-07/schema#
+type: object
+title: Account
+description: An account represents a user's account in the system.
+properties:
+  accountID:
+    type: string
+    pattern: id_region_PlattformName_entityName_originalID
+  name:
+    type: string
+  email:
+    type: string
+    format: email
+    description: 'Emails must follow the Internet Engineering Task Force (IETF) format:
+      local-part@domain'
+  activeSince:
+    type: string
+    format: date-time
+    description: 'Dates must be in ISO-8601 format: YYYY-MM-DD'
+  address:
+    allOf:
+      - $ref: PostalAddress.yaml
+      - type: object
+  managedBy:
+    allOf:
+      - $ref: ManagedBy.yaml
+      - type: object
+required:
+  - accountID
+  - email

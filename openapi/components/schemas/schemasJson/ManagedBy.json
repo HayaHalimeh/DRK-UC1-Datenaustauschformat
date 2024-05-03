@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ManagedBy",
+    "description": "The ManagedBy object represents the entity that manages the managed entity.",
+    "type": "object",
+    "properties": {
+        "identifier": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "PropertyValue"
+                        },
+                        "value": {
+                            "type": "string",
+                            "pattern": "id_region_PlattformName_entityName_originalID"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value"
+                    ]
+                },
+                {
+                    "type": "string",
+                    "pattern": "id_region_PlattformName_entityName_originalID"
+                }
+            ]
+        },
+        "dateCreated": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "createdBy": {
+            "type": "string"
+        },
+        "dateModified": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "modifiedBy": {
+            "type": "string"
+        },
+        "importedFromProject": {
+            "type": "string"
+        },
+        "deleted": {
+            "type": "string"
+        },
+        "visible": {
+            "type": "string"
+        },
+        "department": {
+            "type": "string"
+        },
+        "date": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "The date relevant to the managed entity, formatted in ISO-8601."
+        }
+    },
+    "required": [
+        "identifier",
+        "date"
+    ]
+}

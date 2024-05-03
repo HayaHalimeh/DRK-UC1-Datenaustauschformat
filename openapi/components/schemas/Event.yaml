@@ -1,0 +1,107 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Event
+description: A schema for describing an event.
+type: object
+properties:
+  EventID:
+    oneOf:
+      - type: object
+        properties:
+          type:
+            const: PropertyValue
+          value:
+            type: string
+        required:
+          - type
+          - value
+      - type: string
+        description: For example in the format id_region_PlattformName_entityName_originalID
+  aggregatedRating:
+    type: number
+    format: float
+  audience:
+    type: array
+    items:
+      type: string
+  eventAttendanceMode:
+    type: string
+    enum: 
+      - OnlineEventAttendanceMode
+      - OfflineEventAttendanceMode
+  eventStatus:
+    type: string
+    enum: 
+      - EventCancelled
+      - EventPostponed
+      - EventRescheduled
+      - EventScheduled
+  funding:
+    type: string
+  inLanguage:
+    type: array
+    items:
+      type: string
+  isAccessibleForFree:
+    type: boolean
+  keywords:
+    type: array
+    items:
+      type: string
+  maximumPhysicalAttendeeCapacity:
+    type: integer
+  maximumVirtualAttendeeCapacity:
+    type: integer
+  remainingAttendeeCapacity:
+    type: integer
+  alternateName:
+    type: string
+  description:
+    type: string
+  name:
+    type: string
+  sameAs:
+    type: array
+    items:
+      type: string
+      description: URL or event ID or other identifier
+  url:
+    type: string
+    format: uri
+  ratingCount:
+    type: integer
+  reviewCount:
+    type: integer
+  bestRating:
+    type: integer
+  worstRating:
+    type: integer
+  eventDateTime:
+    type: object
+    $ref: DateTime.yaml
+  hashtags:
+    type: array
+    items:
+      type: string
+  triggerWarning:
+    type: array
+    items:
+      type: string
+  accessibility:
+    type: array
+    items:
+      type: string
+  eventType:
+    type: string
+    description: Type of event e.g. BusinessEvent, ChildrensEvent, ComedyEvent, etc.
+  popularityScore:
+    type: number
+    format: float
+  managedBy:
+    type: object
+    $ref: ManagedBy.yaml
+required:
+  - EventID
+  - name
+  - eventDateTime
+  - description
+  

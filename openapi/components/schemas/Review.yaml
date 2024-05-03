@@ -1,0 +1,57 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Review
+description: A review of an item - for example, a restaurant, movie, or store.
+type: object
+properties:
+  ReviewID:
+    oneOf:
+      - type: string
+        pattern: id_region_PlattformName_entityName_originalID
+
+  reviewAspect:
+    type: string
+  reviewBody:
+    oneOf:
+      - type: string
+      - type: object
+        $ref: TextObject.yaml
+  ratingValue:
+    type: number
+  reviewExplanation:
+    type: string
+  author:
+    type: object
+    $ref: CustomerProfile.yaml
+  dateCreated:
+    type: string
+    description: date-time ISO 8601
+  dateModified:
+    type: string
+    description: date-time ISO 8601
+  inLanguage:
+    type: array
+    items:
+      type: string
+  mentions:
+    type: array
+    items:
+      type: string
+  url:
+    type: string
+    format: uri
+  itemReviewed:
+    oneOf:
+      - type: object
+        $ref: TouristAttraction.yaml
+      - type: object
+        $ref: Event.yaml
+  managedBy:
+    type: object
+    $ref: ManagedBy.yaml
+required:
+  - ReviewID
+  - reviewBody
+  - ratingValue
+  - author
+  - dateCreated
+  - itemReviewed

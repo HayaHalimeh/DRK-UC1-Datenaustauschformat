@@ -1,0 +1,79 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: MediaObject
+description: A media object, such as an image, video, or audio object.
+type: object
+properties:
+  MediaObjectID:
+    type: string
+    description: of pattern id_region_PlattformName_entityName_originalID.
+  encodingFormat:
+    type: string
+    enum: 
+      - audio
+      - image
+      - text
+      - video
+  accessMode:
+    type: string
+  archivedAt:
+    type: string
+  comment:
+    type: string
+  copyrightHolder:
+    oneOf:
+      - type: string
+      - type: object
+        oneOf:
+          - $ref: Person.yaml
+          - $ref: Organization.yaml
+  copyrightNotice:
+    type: string
+  copyrightYear:
+    type: string
+  countryOfOrigin:
+    type: string
+  genre:
+    type: array
+    items:
+      type: string
+  inLanguage:
+    type: string
+  keywords:
+    type: array
+    items:
+      type: string
+  translationOfWork:
+    type: array
+    items:
+      type: object
+      oneOf: 
+        - $ref: CreativeWork.yaml
+        - $ref: MediaObject.yaml
+        - type: string
+          description: URL or ID of the translated work
+  description:
+    type: string
+  name:
+    type: string
+  sameAs:
+    type: string
+    format: uri
+  productionCompany:
+    type: string
+  recordedAt:
+    oneOf:
+      - type: string
+      - type: object
+        properties:
+          eventID:
+            type: string
+          eventName:
+            type: string
+        required:
+          - eventID
+  managedBy:
+    allOf:
+      - $ref: ManagedBy.yaml
+      - type: object
+    
+

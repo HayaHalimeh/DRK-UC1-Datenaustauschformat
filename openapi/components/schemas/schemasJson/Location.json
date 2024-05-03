@@ -1,0 +1,139 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Location",
+    "description": "A location",
+    "type": "object",
+    "properties": {
+        "identifier": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "PropertyValue"
+                        },
+                        "value": {
+                            "type": "string",
+                            "pattern": "id_region_PlattformName_entityName_originalID"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value"
+                    ]
+                },
+                {
+                    "type": "string",
+                    "pattern": "id_region_PlattformName_entityName_originalID"
+                }
+            ]
+        },
+        "isAccessibleForFree": {
+            "type": "string",
+            "pattern": "^\\d+(\\.\\d+)? [A-Z]{3}$"
+        },
+        "maximumAttendeeCapacity": {
+            "type": "integer"
+        },
+        "openingHoursSpecification": {
+            "type": "object",
+            "properties": {
+                "openDays": {
+                    "type": "string"
+                },
+                "openTime": {
+                    "type": "string"
+                },
+                "closeTime": {
+                    "type": "string"
+                }
+            }
+        },
+        "publicAccess": {
+            "type": "boolean"
+        },
+        "smokingAllowed": {
+            "type": "boolean"
+        },
+        "alternateName": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "sameAs": {
+            "type": "string"
+        },
+        "address": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "streetAddress": {
+                        "type": "string"
+                    },
+                    "postalCode": {
+                        "type": "string"
+                    },
+                    "addressLocality": {
+                        "type": "string"
+                    },
+                    "addressRegion": {
+                        "type": "string"
+                    },
+                    "addressCountry": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "maximumPhysicalAttendeeCapacity": {
+            "type": "integer"
+        },
+        "maximumVirtualAttendeeCapacity": {
+            "type": "integer"
+        },
+        "remainingAttendeeCapacity": {
+            "type": "integer"
+        },
+        "managedBy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "managerId": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "contactPoint": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "locationType": {
+            "type": "string"
+        },
+        "accessibility": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "identifier",
+        "isAccessibleForFree",
+        "address",
+        "name",
+        "accessibility"
+    ]
+}

@@ -1,0 +1,18 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: CustomerProfile
+description: A customer's profile containing their details.
+type: object
+properties:
+  VendorProfileID:
+    type: string
+    pattern: id_region_PlattformName_entityName_originalID
+  name:
+    type: string
+  profileUrl:
+    type: string
+    format: uri
+  account:
+    allOf:
+      - $ref: Account.yaml
+      - type: object
+additionalProperties: false

@@ -1,0 +1,66 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: DateTime
+description: Date and time of an event.
+type: object
+properties:
+  checkinTime:
+    type: string
+    format: date-time
+    description: in the format ISO 8601 #YYYY-MM-DDTHH:MM:SSZ
+  checkoutTime:
+    type: string
+    format: date-time
+    description: in the format ISO 8601
+  dateCreated:
+    type: string
+    format: date-time
+    description: in the format ISO 8601
+  dateDeleted:
+    type: string
+    format: date-time
+    description: in the format ISO 8601
+  dateModified:
+    type: string
+    format: date-time
+    description: in the format ISO 8601
+  doorTime:
+    type: string
+    format: date-time
+    description: in the format ISO 8601
+  endDate:
+    type: string
+    format: date-time
+    description: in the format ISO 8601
+  endTime:
+    type: string
+    format: date-time
+    description: in the format ISO 8601
+  startDate:
+    type: string
+    format: date-time
+    description: in the format ISO 8601
+  startTime:
+    type: string
+    format: date-time
+    description: in the format ISO 8601
+  descriptionDateSpecific:
+    type: string
+  inLocation:
+    type: object
+    $ref: "Location.yaml"
+  highPrice:
+    type: string
+    description: Price Currency, e.g. 20.00 EUR
+  lowPrice:
+    type: string
+    description: Price Currency e.g. 10.00 EUR
+  ticketUrl:
+    type: string
+    format: uri
+  reservationLink:
+    type: string
+    format: uri
+required:
+  - startDate
+  - startTime
+  - inLocation

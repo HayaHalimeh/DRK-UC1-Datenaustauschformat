@@ -1,0 +1,160 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Organization",
+    "description": "A business or organization.",
+    "type": "object",
+    "properties": {
+        "identifier": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "PropertyValue"
+                        },
+                        "value": {
+                            "type": "string",
+                            "pattern": "id_region_PlattformName_entityName_originalID"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value"
+                    ]
+                },
+                {
+                    "type": "string",
+                    "pattern": "id_region_PlattformName_entityName_originalID"
+                }
+            ]
+        },
+        "department": {
+            "type": "string"
+        },
+        "foundingDate": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "foundingLocation": {
+            "type": "object",
+            "properties": {
+                "streetAddress": {
+                    "type": "string"
+                },
+                "postalCode": {
+                    "type": "string"
+                },
+                "addressLocality": {
+                    "type": "string"
+                },
+                "addressRegion": {
+                    "type": "string"
+                },
+                "addressCountry": {
+                    "type": "string"
+                }
+            }
+        },
+        "funding": {
+            "type": "string"
+        },
+        "iso6523Code": {
+            "type": "string"
+        },
+        "knowsLanguage": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "legalName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "locationId": {
+                        "type": "string",
+                        "pattern": "id_region_PlattformName_entityName_originalID"
+                    },
+                    "address": {
+                        "type": "object",
+                        "properties": {
+                            "streetAddress": {
+                                "type": "string"
+                            },
+                            "postalCode": {
+                                "type": "string"
+                            },
+                            "addressLocality": {
+                                "type": "string"
+                            },
+                            "addressRegion": {
+                                "type": "string"
+                            },
+                            "addressCountry": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "required": [
+                    "locationId",
+                    "address"
+                ]
+            }
+        },
+        "nonprofitStatus": {
+            "type": "boolean"
+        },
+        "additionalType": {
+            "type": "string"
+        },
+        "alternateName": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "sameAs": {
+            "type": "string"
+        },
+        "managedBy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "managerId": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "contactPoint": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "accessibility": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "required": [
+        "identifier",
+        "location",
+        "name",
+        "accessibility"
+    ]
+}

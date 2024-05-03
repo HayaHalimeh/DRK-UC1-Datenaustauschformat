@@ -1,0 +1,199 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Article",
+    "description": "An article is a piece of written work published in a print or electronic medium.",
+    "type": "object",
+    "properties": {
+        "ArticleID": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "PropertyValue"
+                        },
+                        "value": {
+                            "type": "string",
+                            "pattern": "id_region_PlattformName_entityName_originalID"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value"
+                    ]
+                },
+                {
+                    "type": "string",
+                    "pattern": "id_region_PlattformName_entityName_originalID"
+                }
+            ]
+        },
+        "articleBody": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "mediaType": {
+                        "type": "string"
+                    },
+                    "content": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mediaType",
+                    "content",
+                    "language"
+                ]
+            }
+        },
+        "speakable": {
+            "oneOf": [
+                {
+                    "type": "string",
+                    "format": "uri"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "mediaType": {
+                                "type": "string",
+                                "enum": [
+                                    "AudioObject"
+                                ]
+                            },
+                            "url": {
+                                "type": "string",
+                                "format": "uri"
+                            }
+                        },
+                        "required": [
+                            "mediaType",
+                            "url"
+                        ]
+                    }
+                }
+            ]
+        },
+        "copyrightHolder": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "enum": [
+                                "Person",
+                                "Organization"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "type"
+                    ]
+                }
+            ]
+        },
+        "copyrightNotice": {
+            "type": "string"
+        },
+        "copyrightYear": {
+            "type": "string",
+            "pattern": "^\\d{4}$"
+        },
+        "genre": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "headline": {
+            "type": "string"
+        },
+        "inLanguage": {
+            "type": "string"
+        },
+        "isAccessibleForFree": {
+            "type": "boolean"
+        },
+        "keywords": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "license": {
+            "type": "string",
+            "format": "uri"
+        },
+        "translationOfWork": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "workType": {
+                        "type": "string",
+                        "enum": [
+                            "Article",
+                            "CreativeWork",
+                            "MediaObject"
+                        ]
+                    },
+                    "details": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "workType",
+                    "details"
+                ]
+            }
+        },
+        "sameAs": {
+            "type": "string",
+            "format": "uri"
+        },
+        "url": {
+            "type": "string",
+            "format": "uri"
+        },
+        "managedBy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "managerId": {
+                        "type": "string",
+                        "pattern": "id_region_PlattformName_entityName_originalID"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "managerId",
+                    "role"
+                ]
+            }
+        }
+    },
+    "required": [
+        "ArticleID",
+        "articleBody",
+        "headline",
+        "inLanguage",
+        "name",
+        "url"
+    ]
+}

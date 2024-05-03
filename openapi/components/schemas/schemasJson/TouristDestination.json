@@ -1,0 +1,133 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "TouristDestination",
+    "description": "A tourist destination.",
+    "type": "object",
+    "properties": {
+        "TouristDestinationID": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "PropertyValue"
+                        },
+                        "value": {
+                            "type": "string",
+                            "pattern": "id_region_PlattformName_entityName_originalID"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value"
+                    ]
+                },
+                {
+                    "type": "string",
+                    "pattern": "id_region_PlattformName_entityName_originalID"
+                }
+            ]
+        },
+        "openingHoursSpecification": {
+            "type": "object",
+            "properties": {
+                "opens": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "closes": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "daysOfOperation": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "opens",
+                "closes",
+                "daysOfOperation"
+            ]
+        },
+        "publicAccess": {
+            "type": "boolean"
+        },
+        "location": {
+            "type": "object",
+            "properties": {
+                "streetAddress": {
+                    "type": "string"
+                },
+                "postalCode": {
+                    "type": "string"
+                },
+                "addressLocality": {
+                    "type": "string"
+                },
+                "addressRegion": {
+                    "type": "string"
+                },
+                "addressCountry": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "streetAddress",
+                "postalCode",
+                "addressLocality",
+                "addressCountry"
+            ]
+        },
+        "name": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "managedBy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "managerId": {
+                        "type": "string",
+                        "pattern": "id_region_PlattformName_entityName_originalID"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "managerId",
+                    "role"
+                ]
+            }
+        },
+        "contactPoint": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ContactPoint"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "detail"
+                ]
+            }
+        }
+    },
+    "required": [
+        "TouristDestinationID",
+        "location",
+        "name"
+    ]
+}

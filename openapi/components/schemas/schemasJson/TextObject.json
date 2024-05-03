@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "TextObject",
+    "description": "An text file associated with the item.",
+    "type": "object",
+    "properties": {
+        "MediaObjectID": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "id_region_PlattformName_entityName_originalID"
+                },
+                "type": {
+                    "const": "MediaObject"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ]
+        },
+        "publication": {
+            "type": "string"
+        },
+        "publisher": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "type": {
+                            "enum": [
+                                "Organization",
+                                "Person"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "name",
+                        "type"
+                    ]
+                }
+            ]
+        },
+        "text": {
+            "type": "string",
+            "pattern": "^https?:\\/\\/.+|.+"
+        }
+    },
+    "required": [
+        "MediaObjectID"
+    ]
+}

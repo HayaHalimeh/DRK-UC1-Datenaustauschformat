@@ -1,0 +1,50 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: ContactPoint
+description: A contact point—for example, a culture institute social media.
+type: object
+properties:
+  areaServed:
+    type: string
+  availableLanguage:
+    type: array
+    items:
+      type: string
+      
+  contactType:
+    type: string
+    description:  A sales contact point, a PR contact point and so on
+  email:
+    type: string
+    format: email
+  hoursAvailable:
+    type: string
+  url:
+    type: string
+    format: uri
+  description:
+    type: string
+  name:
+    type: string
+  telephone:
+    type: string
+    description: E.164-Format
+  faxNumber:
+    type: string
+    description: E.164-Format
+  socialMedia:
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+        url:
+          type: string
+          format: uri
+      required:
+        - type
+        - url
+       
+
+required:
+  - email

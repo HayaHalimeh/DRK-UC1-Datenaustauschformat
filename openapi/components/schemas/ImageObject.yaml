@@ -1,0 +1,31 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: ImageObject
+description: An image file.
+type: object
+
+
+properties:
+  mediaObjectAttributes:
+    allOf: 
+      - $ref: MediaObject.yaml
+      - type: object
+  caption:
+    type: string
+  height:
+    type: string
+    description: Height of the image in pixels.
+  width:
+    type: string
+    description: Width of the image in pixels.
+  image:
+    oneOf:
+      - type: object
+        properties:
+          content:
+            description: "Direct embedded image content. This field is expected to carry raw image data. Note: Actual implementation should handle this property as raw binary data, which is not typically supported directly in JSON. Consider using application-specific encoding or structuring."
+        required:
+          - content
+      - type: string
+        format: uri
+required:
+  - image

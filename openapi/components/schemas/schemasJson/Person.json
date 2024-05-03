@@ -1,0 +1,148 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Person",
+    "description": "A person: An artist.",
+    "type": "object",
+    "properties": {
+        "PersonID": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "const": "PropertyValue"
+                        },
+                        "value": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "value"
+                    ]
+                },
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        "additionalName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "streetAddress": {
+                        "type": "string"
+                    },
+                    "postalCode": {
+                        "type": "string"
+                    },
+                    "addressLocality": {
+                        "type": "string"
+                    },
+                    "addressRegion": {
+                        "type": "string"
+                    },
+                    "addressCountry": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "award": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "birthDate": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "birthPlace": {
+            "oneOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "streetAddress": {
+                            "type": "string"
+                        },
+                        "postalCode": {
+                            "type": "string"
+                        },
+                        "addressLocality": {
+                            "type": "string"
+                        },
+                        "addressRegion": {
+                            "type": "string"
+                        },
+                        "addressCountry": {
+                            "type": "string"
+                        }
+                    }
+                },
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        "deathDate": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "gender": {
+            "type": "string"
+        },
+        "jobTitle": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "managedBy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "managerId": {
+                        "type": "string"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "contactPoint": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ContactPoint"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "detail"
+                ]
+            }
+        }
+    },
+    "required": [
+        "PersonID",
+        "description",
+        "name"
+    ]
+}

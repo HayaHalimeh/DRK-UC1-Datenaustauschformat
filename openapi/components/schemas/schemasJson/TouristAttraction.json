@@ -1,0 +1,129 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "TouristAttraction",
+    "description": "A tourist attraction.",
+    "type": "object",
+    "properties": {
+        "TouristAttractionID": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "PropertyValue"
+                },
+                "value": {
+                    "type": "string",
+                    "pattern": "id_region_PlattformName_entityName_originalID"
+                }
+            },
+            "required": [
+                "type",
+                "value"
+            ]
+        },
+        "location": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "locationId": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "address": {
+                        "type": "object",
+                        "properties": {
+                            "streetAddress": {
+                                "type": "string"
+                            },
+                            "postalCode": {
+                                "type": "string"
+                            },
+                            "addressLocality": {
+                                "type": "string"
+                            },
+                            "addressRegion": {
+                                "type": "string"
+                            },
+                            "addressCountry": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "streetAddress",
+                            "addressLocality",
+                            "addressCountry"
+                        ]
+                    }
+                },
+                "required": [
+                    "locationId",
+                    "name",
+                    "address"
+                ]
+            }
+        },
+        "accessibility": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "sameAs": {
+            "type": "string",
+            "format": "uri"
+        },
+        "managedBy": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "managerId": {
+                        "type": "string",
+                        "pattern": "id_region_PlattformName_entityName_originalID"
+                    },
+                    "role": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "managerId",
+                    "role"
+                ]
+            }
+        },
+        "contactPoint": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "const": "ContactPoint"
+                    },
+                    "detail": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "type",
+                    "detail"
+                ]
+            }
+        }
+    },
+    "required": [
+        "TouristAttractionID",
+        "location",
+        "accessibility",
+        "description",
+        "name",
+        "sameAs"
+    ]
+}

@@ -1,122 +1,369 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: Example API
-  termsOfService: https://example.com/terms/
+  title: Datenaustauschformat UC1 
   contact:
     name: Contact our support
-    email: contact@example.com
-    url: http://example.com/contact
+    email: contact@example.com #Ariane
   license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+    name: Creative Commons Attribution 4.0 International
+    url: 'https://opensource.org/licenses/Cc-BY-4.0'
+
   x-logo:
     url: 'https://redocly.github.io/openapi-template/logo.png'
     altText: OpenAPI example logo
-  description: >
-    This is an **example** API to demonstrate features of the OpenAPI
-    specification.
 
-    # Introduction
-
-    This API definition is intended to to be a good starting point for
-    describing your API in [OpenAPI/Swagger
-    format](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md).
-
-    It also demonstrates features of the
-    [create-openapi-repo](https://github.com/Redocly/create-openapi-repo) tool
-    and the [Redoc](https://github.com/Redocly/Redoc) documentation engine. Beyond
-    the standard OpenAPI syntax, we use a few 
-    [vendor extensions](https://github.com/Redocly/Redoc/blob/main/docs/redoc-vendor-extensions.md).
-
-    # OpenAPI Specification
-
-    The goal of The OpenAPI Specification is to define a standard, language-agnostic interface to REST APIs which
-    allows both humans and computers to discover and understand the capabilities
-    of the service without access to source
-    code, documentation, or through network traffic inspection. When properly
-    defined via OpenAPI, a consumer can 
-    understand and interact with the remote service with a minimal amount of
-    implementation logic. Similar to what
-    interfaces have done for lower-level programming, OpenAPI removes the
-    guesswork in calling the service.
-externalDocs:
-  description: "Find out how to create a GitHub repo for your OpenAPI definition."
-  url: 'https://github.com/Redocly/create-openapi-repo'
-tags:
-  - name: Echo
-    description: "Example echo operations."
-  - name: User
-    description: "Example actions on user accounts."
-  - name: Admin
-    description: "Example operations reserved for administrators."
-  - name: Info
-    description: "Example operations for retrieving information."
-  - name: Tag
-    description: "This is a tag description."
+  description: 
+    "This is an online documentation for the data exchange format of the DRK-UC1 project.
+    
+    !!Work in progress!! This documentation is still under construction and will be updated regularly."
+security:
+  - apiKey: [] 
 x-tagGroups:
   - name: General
     tags:
-      - User
-      - Info
-      - Echo
-  - name: Administration
-    tags:
-      - Admin
+      - Event
+      - TouristAttraction
+      - Organization
+      - Location
+      - Person
+      - CreativeWork
+
+  - name: MediaObjects
+    tags:  
+      - TextObject
+      - ImageObject
+      - VideoObject
+      - AudioObject
+
+  - name: External Resources  
+    tags:  
+      - Article
+      - DDB-Object
+
+  - name: TouristObjects
+    tags:  
+      - TouristDestination  
+
+  - name: Nutzungsverhalten
+    tags:     
+      - Account
+      - VendorProfile
+      - CustomerProfile
+      - Review
+ 
 servers:
-  - url: https://{tenant}/api/v1
-    variables:
-      tenant:
-        default: www
-        description: Your tenant id
-  - url: https://example.com/api/v1
+  - url: https://api.uc1-example.com/v1
+
+
+  
 paths:
-  '/users/{username}':
-    $ref: 'paths/users_{username}.yaml'
-  '/user':
-    $ref: 'paths/user.yaml'
-  '/user/list':
-    $ref: 'paths/user-status.yaml'
-  /pathItem:
-    $ref: paths/pathItem.yaml
-  /pathItemWithExamples:
-    $ref: paths/pathItemWithExamples.yaml
-  '/echo':
-    $ref: 'paths/echo.yaml'
-components:
-  securitySchemes:
-    main_auth:
-      description: "Example description text of the OAuth2 scheme."
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: http://example.com/api/oauth/dialog
-          scopes:
-            'read:users': read user info
-            'write:users': modify or remove users
-    api_key:
-      description: "Example description text of the API key scheme."
-      type: apiKey
-      in: header
-      name: api_key
-    basic_auth:
-      type: http
-      scheme: basic
-webhooks:
-  userInfo:
-    post:
-      summary: New user webhook
-      description: "Information about a new user in the system."
-      operationId: userInfo
+  /accounts:
+    get:
       tags:
-        - Info
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: 'components/schemas/User.yaml'
+        - Account
+      summary: Provides public information about accounts
+      description: "TODO: Write description"
+      operationId: getAccounts
       responses:
-        '200':
-          description: "Successfully retrieved information about a new user."
-      security:
-        - api_key: []
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "./components/schemas/Account.yaml"
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+  /events:
+    get:
+      tags:
+        - Event
+      summary: Provides public information about events
+      description: "TODO: Write description"
+      operationId: getEvents
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/Event.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+  /organizations:
+    get:
+      tags:
+        - Organization
+      summary: Provides public information about organizations
+      description: "TODO: Write description"
+      operationId: getOrganizations
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/Organization.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+  
+  /locations:
+    get:
+      tags:
+        - Location
+      summary: Provides public information about locations
+      description: "TODO: Write description"
+      operationId: getLocations
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/Location.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+  
+  /tourist-attractions:
+    get: 
+      tags:
+        - TouristAttraction
+      summary: Provides public information about tourist attractions
+      description: "TODO: Write description"
+      operationId: getTouristAttractions
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/TouristAttraction.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+      
+  /tourist-destinations:
+    get:
+      tags:
+        - TouristDestination
+      summary: Provides public information about tourist destinations
+      description: "TODO: Write description"
+      operationId: getTouristDestinations
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/TouristDestination.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+  /images:
+    get:
+      tags:
+        - ImageObject
+      summary: Provides public information about images
+      description: "TODO: Write description"
+      operationId: getImages
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/ImageObject.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+          
+
+  /videos:
+    get:
+      tags:
+        - VideoObject
+      summary: Provides public information about videos
+      description: "TODO: Write description"
+      operationId: getVideos
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/VideoObject.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+        
+        
+  /audios:
+    get:
+      tags:
+        - AudioObject
+      summary: Provides public information about audios
+      description: "TODO: Write description"
+      operationId: getAudios
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/AudioObject.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+          
+  
+  /texts:
+    get:
+      tags:
+        - TextObject
+      summary: Provides public information about texts
+      description: "TODO: Write description"
+      operationId: getTexts
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/TextObject.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+
+  /articles:
+    get:
+      tags:
+        - Article
+      summary: Provides public information about articles
+      description: "TODO: Write description"
+      operationId: getArticles
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/Article.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+          
+  /creative-works:
+    get:
+      tags:
+        - CreativeWork
+      summary: Provides public information about creative works
+      description: "TODO: Write description"
+      operationId: getCreativeWorks
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/CreativeWork.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+        
+  /reviews:
+    get:
+      tags:
+        - Review
+      summary: Provides public information about reviews
+      description: "TODO: Write description"
+      operationId: getReviews
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/Review.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+  
+  /vendors:
+    get:
+      tags:
+        - VendorProfile
+      summary: Provides public information about vendors
+      description: "TODO: Write description"
+      operationId: getVendors
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/VendorProfile.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+  
+  /customers:
+    get:
+      tags:
+        - CustomerProfile
+      summary: Provides public information about customers
+      description: "TODO: Write description"
+      operationId: getCustomers
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/ExampleObject.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+      
+  /ddb-objects:
+    get:
+      tags:
+        - DDB-Object
+      summary: Provides public information about DD-Objects
+      description: "TODO: Write description"
+      operationId: getDDBObjects
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/DDBObject.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value
+
+
+
+
+    
+   

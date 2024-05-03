@@ -1,0 +1,46 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: TouristAttraction
+description: A tourist attraction.
+type: object
+properties:
+  TouristAttractionID:
+    oneOf:
+      - type: object
+        properties:
+          type:
+            const: PropertyValue
+          value:
+            type: string
+        required:
+          - type
+          - value
+      - type: string
+        description: id_region_PlattformName_entityName_originalID
+  location:
+    type: object
+    $ref: Location.yaml
+  accessibility:
+    type: array
+    items: 
+      type: string
+  type:
+    type: string
+  description:
+    type: string
+  name:
+    type: string
+  sameAs:
+    type: array
+    items: 
+      type: string  
+  contactPoint:
+    type: object
+    $ref: ContactPoint.yaml
+  managedBy:
+    type: object
+    $ref: ManagedBy.yaml
+
+required:
+  - TouristAttractionID
+  - location
+  - name

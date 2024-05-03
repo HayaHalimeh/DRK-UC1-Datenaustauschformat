@@ -1,0 +1,28 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: ManagedBy
+description: The ManagedBy object represents the entity that manages the managed entity.
+type: object
+properties:
+  dateCreated:
+    type: string
+    format: date
+    description: ISO-8601 formatted date string.
+  createdBy:
+    type: string
+  dateModified:
+    type: string
+    format: date
+    description: ISO-8601 formatted date string.
+  modifiedBy:
+    type: string
+  importedFromProject:
+    type: string
+  deleted:
+    type: boolean
+  visible:
+    type: boolean
+  department:
+    type: string
+required:
+  - dateCreated
+  - dateModified
