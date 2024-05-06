@@ -6,9 +6,8 @@ info:
     name: Contact our support
     email: contact@example.com #Ariane
   license:
-    name: Creative Commons Attribution 4.0 International
-    url: 'https://opensource.org/licenses/Cc-BY-4.0'
-
+    name: The MIT License (MIT)
+    url: 'https://opensource.org/licenses/MIT'
   x-logo:
     url: 'https://redocly.github.io/openapi-template/logo.png'
     altText: OpenAPI example logo
