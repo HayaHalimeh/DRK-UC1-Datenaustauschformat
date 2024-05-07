@@ -9,7 +9,8 @@ info:
     name: The MIT License (MIT)
     url: 'https://opensource.org/licenses/MIT'
   x-logo:
-    url: './paths/DALLE-Logo.webp'
+
+    url: './logo.png'
     altText: OpenAPI example logo
 
   description: 
