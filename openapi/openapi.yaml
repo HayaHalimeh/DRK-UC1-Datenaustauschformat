@@ -8,11 +8,8 @@ info:
   license:
     name: The MIT License (MIT)
     url: 'https://opensource.org/licenses/MIT'
-  x-logo:
-
-    url: './logo.png'
-    altText: OpenAPI example logo
-
+  
+    
   description: 
     "This is an online documentation for the data exchange format of the DRK-UC1 project.
     
