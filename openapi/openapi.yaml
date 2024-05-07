@@ -1,15 +1,15 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: Datenaustauschformat UC1 
+  title: Data Transfer Exchange UC1 
   contact:
     name: Contact our support
-    email: contact@example.com #Ariane
+    email: Ariane@example.com #Ariane
   license:
     name: The MIT License (MIT)
     url: 'https://opensource.org/licenses/MIT'
   x-logo:
-    url: 'https://redocly.github.io/openapi-template/logo.png'
+    url: './paths/DALLE-Logo.webp'
     altText: OpenAPI example logo
 
   description: 
