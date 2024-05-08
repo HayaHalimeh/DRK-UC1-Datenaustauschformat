@@ -9,18 +9,27 @@ info:
     name: The MIT License (MIT)
     url: 'https://opensource.org/licenses/MIT'
   
-    
+  x-logo:
+      url: 'https://raw.githubusercontent.com/HayaHalimeh/DRK-UC1-Datenaustauschformat/main/openapi/logo.png'
+      backgroundColor: '#FFFFFF'
+
   description: 
     "This is an online documentation for the data exchange format of the DRK-UC1 project.
     The schemas build on and extend Schema.org
     New entities or attributes that do not exist in Schema.org are marked as such. Please refer to Schema.org for more details 
     on Data Transfer Exchange UC1. 
-    
+
+    For a detailed visual representation of our Data Model schema, see our [Data Model Diagram](#operation/getDiagram).
+
     \n\n
     !!Work in progress!! This documentation is still under construction and will be updated regularly."
+
 security:
   - apiKey: [] 
 x-tagGroups:
+  - name: Diagram
+    tags:
+      - Diagram
   - name: General
     tags:
       - Event
@@ -59,14 +68,25 @@ servers:
 
   
 paths:
-
+  /diagram:
+    get:
+      tags: 
+        -  Diagram
+      summary: The Data Model schema provides a structured format for data transfer. 
+      operationId: getDiagram
+      description: |
+        The Data Model schema provides a structured format for data transfer. Below is the ERD diagram illustrating the relationships:
+        
+        ![ERD Diagram](https://raw.githubusercontent.com/HayaHalimeh/DRK-UC1-Datenaustauschformat/main/openapi/ERD_DRK-UC1.png)
+        
+        Attributes and their descriptions follow below.
 
   /events:
     get:
       tags:
         - Event
       summary: Provides public information about events
-      description: "To exchnage all kinds of event data"
+      description: "To exhange all kinds of event data"
       operationId: getEvents
       responses:
         "200":
