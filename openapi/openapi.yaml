@@ -12,7 +12,11 @@ info:
     
   description: 
     "This is an online documentation for the data exchange format of the DRK-UC1 project.
+    The schemas build on and extend Schema.org
+    New entities or attributes that do not exist in Schema.org are marked as such. Please refer to Schema.org for more details 
+    on Data Transfer Exchange UC1. 
     
+    \n\n
     !!Work in progress!! This documentation is still under construction and will be updated regularly."
 security:
   - apiKey: [] 
@@ -55,30 +59,14 @@ servers:
 
   
 paths:
-  /accounts:
-    get:
-      tags:
-        - Account
-      summary: Provides public information about accounts
-      description: "TODO: Write description"
-      operationId: getAccounts
-      responses:
-        "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: "./components/schemas/Account.yaml"
-              #example:
-              #  $ref: "./components/examples/Account.json"
-        "400":
-          description: Invalid status value
+
+
   /events:
     get:
       tags:
         - Event
       summary: Provides public information about events
-      description: "TODO: Write description"
+      description: "To exchnage all kinds of event data"
       operationId: getEvents
       responses:
         "200":
@@ -91,12 +79,13 @@ paths:
               #  $ref: "./components/examples/Account.json"
         "400":
           description: Invalid status value
+
   /organizations:
     get:
       tags:
         - Organization
       summary: Provides public information about organizations
-      description: "TODO: Write description"
+      description: "To exchange information about different organizations"
       operationId: getOrganizations
       responses:
         "200":
@@ -115,7 +104,7 @@ paths:
       tags:
         - Location
       summary: Provides public information about locations
-      description: "TODO: Write description"
+      description: "To exchange information about different locations"
       operationId: getLocations
       responses:
         "200":
@@ -134,7 +123,7 @@ paths:
       tags:
         - TouristAttraction
       summary: Provides public information about tourist attractions
-      description: "TODO: Write description"
+      description: "To exchnage information about tourist attractions. A tourist attraction is a an event without bounding date and time, e.g. Galleries, Musuems, etc."
       operationId: getTouristAttractions
       responses:
         "200":
@@ -153,7 +142,7 @@ paths:
       tags:
         - TouristDestination
       summary: Provides public information about tourist destinations
-      description: "TODO: Write description"
+      description: "To exchange information about different tourist destinations. Tourist destinations could be restaurants, hotels, Cafes, etc."
       operationId: getTouristDestinations
       responses:
         "200":
@@ -166,12 +155,13 @@ paths:
               #  $ref: "./components/examples/Account.json"
         "400":
           description: Invalid status value
+
   /images:
     get:
       tags:
         - ImageObject
       summary: Provides public information about images
-      description: "TODO: Write description"
+      description: "To exchnage all kinds of images as its own object with own defined copyrights and agreements"
       operationId: getImages
       responses:
         "200":
@@ -191,7 +181,7 @@ paths:
       tags:
         - VideoObject
       summary: Provides public information about videos
-      description: "TODO: Write description"
+      description: "To exchnage all kinds of videos as its own object with own defined copyrights and agreements"
       operationId: getVideos
       responses:
         "200":
@@ -211,7 +201,7 @@ paths:
       tags:
         - AudioObject
       summary: Provides public information about audios
-      description: "TODO: Write description"
+      description: "To exchnage all kinds of audios as its own object with own defined copyrights and agreements"
       operationId: getAudios
       responses:
         "200":
@@ -231,7 +221,7 @@ paths:
       tags:
         - TextObject
       summary: Provides public information about texts
-      description: "TODO: Write description"
+      description: "To exchnage all kinds of texts as its own object with own defined copyrights and agreements"
       operationId: getTexts
       responses:
         "200":
@@ -250,7 +240,7 @@ paths:
       tags:
         - Article
       summary: Provides public information about articles
-      description: "TODO: Write description"
+      description: "To exchnage information about articles describing events, tourist attractions, artists and so on"
       operationId: getArticles
       responses:
         "200":
@@ -269,7 +259,7 @@ paths:
       tags:
         - CreativeWork
       summary: Provides public information about creative works
-      description: "TODO: Write description"
+      description: "To exchnage information about creative works. A creative work is the creative art being introduced, presented, created or replicated in events or theather, etc. \\"
       operationId: getCreativeWorks
       responses:
         "200":
@@ -283,31 +273,52 @@ paths:
         "400":
           description: Invalid status value
         
-  /reviews:
+  
+  /ddb-objects:
     get:
       tags:
-        - Review
-      summary: Provides public information about reviews
-      description: "TODO: Write description"
-      operationId: getReviews
+        - DDB-Object
+      summary: Provides public information about Deutsche Digitale Bibiliothek Objects
+      description: "To exchange information about a DDB object linked to an enitity of the data exchnage format"
+      operationId: getDDBObjects
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: components/schemas/Review.yaml
+                $ref: components/schemas/DDBObject.yaml
+              #example:
+              #  $ref: "./components/examples/Account.json"
+        "400":
+          description: Invalid status value       
+        
+  #Nutzungsverhalten        
+  /accounts:
+    get:
+      tags:
+        - Account
+      summary: Provides public information about accounts
+      description: "For Personalization"
+      operationId: getAccounts
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "./components/schemas/Account.yaml"
               #example:
               #  $ref: "./components/examples/Account.json"
         "400":
           description: Invalid status value
-  
+
   /vendors:
     get:
       tags:
         - VendorProfile
       summary: Provides public information about vendors
-      description: "TODO: Write description"
+      description: "To exchange information about vendor profiles. A vensor profile belongs to an art organization or to a private person (e.g. artist)"
       operationId: getVendors
       responses:
         "200":
@@ -326,7 +337,7 @@ paths:
       tags:
         - CustomerProfile
       summary: Provides public information about customers
-      description: "TODO: Write description"
+      description: "For Personalization"
       operationId: getCustomers
       responses:
         "200":
@@ -339,25 +350,26 @@ paths:
               #  $ref: "./components/examples/Account.json"
         "400":
           description: Invalid status value
-      
-  /ddb-objects:
+
+  /reviews:
     get:
       tags:
-        - DDB-Object
-      summary: Provides public information about DD-Objects
-      description: "TODO: Write description"
-      operationId: getDDBObjects
+        - Review
+      summary: Provides public information about reviews
+      description: "To exchange information about reviews of customers of culture platforms. Reviews could be about events or tourist attractions"
+      operationId: getReviews
       responses:
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: components/schemas/DDBObject.yaml
+                $ref: components/schemas/Review.yaml
               #example:
               #  $ref: "./components/examples/Account.json"
         "400":
           description: Invalid status value
+
 
 
 
