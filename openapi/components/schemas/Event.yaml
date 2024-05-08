@@ -3,19 +3,20 @@ title: Event
 description: A schema for describing an event.
 type: object
 properties:
-  EventID:
+  eventID:
     oneOf:
       - type: object
         properties:
           type:
-            const: PropertyValue
+            type: string
           value:
             type: string
         required:
           - type
           - value
       - type: string
-        description: For example in the format id_region_PlattformName_entityName_originalID
+        description: Pattern id_region_PlattformName_entityName_originalID
+        format: text
   aggregatedRating:
     type: number
     format: float
@@ -23,13 +24,16 @@ properties:
     type: array
     items:
       type: string
+      format: text
   eventAttendanceMode:
     type: string
+    format: text
     enum: 
       - OnlineEventAttendanceMode
       - OfflineEventAttendanceMode
   eventStatus:
     type: string
+    format: text
     enum: 
       - EventCancelled
       - EventPostponed
@@ -37,70 +41,95 @@ properties:
       - EventScheduled
   funding:
     type: string
+    format: text
   inLanguage:
     type: array
     items:
       type: string
+      format: text
   isAccessibleForFree:
     type: boolean
+    format: boolean
   keywords:
     type: array
     items:
       type: string
+      format: text
   maximumPhysicalAttendeeCapacity:
     type: integer
+    format: int32
   maximumVirtualAttendeeCapacity:
     type: integer
+    format: int32
   remainingAttendeeCapacity:
     type: integer
+    format: int32
   alternateName:
     type: string
+    format: text
   description:
     type: string
+    format: text
   name:
     type: string
+    format: text
   sameAs:
     type: array
     items:
       type: string
       description: URL or event ID or other identifier
+      format: text
   url:
     type: string
     format: uri
   ratingCount:
     type: integer
+    format: int32
   reviewCount:
     type: integer
+    format: int32
   bestRating:
     type: integer
+    format: int32
   worstRating:
     type: integer
+    format:   int32
   eventDateTime:
+    description: The date and time of the event. Extended attribute
     type: object
     $ref: DateTime.yaml
+    
   hashtags:
+    description: Extended attribute
     type: array
     items:
       type: string
+      format: text
   triggerWarning:
+    description: Extended attribute
     type: array
     items:
       type: string
+      format: text
   accessibility:
+    description: Extended attribute
     type: array
     items:
       type: string
+      format: text
   eventType:
     type: string
-    description: Type of event e.g. BusinessEvent, ChildrensEvent, ComedyEvent, etc.
+    format: text
+    description: Type of event e.g. BusinessEvent, ChildrensEvent, ComedyEvent, etc. Extended attribute
   popularityScore:
     type: number
     format: float
   managedBy:
+    description: Information about the management resposible for data or data exchnge. Extended attribute
     type: object
     $ref: ManagedBy.yaml
 required:
-  - EventID
+  - eventID
   - name
   - eventDateTime
   - description

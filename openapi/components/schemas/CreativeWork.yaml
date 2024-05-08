@@ -4,25 +4,28 @@ description: 'A creative work: an article, essay, painting, software application
   etc.'
 type: object
 properties:
-  CreativeWorkID:
+  creativeWorkID:
     oneOf:
       - type: object
         properties:
           type:
-            const: PropertyValue
+            type: string
           value:
             type: string
         required:
           - type
           - value
       - type: string
-        description: id_region_PlattformName_entityName_originalID
+        description: Pattern id_region_PlattformName_entityName_originalID
+        format: text
   abstract:
     type: string
+    format: text
   audience:
     type: array
     items:
       type: string
+      format: text
   copyrightHolder:
     oneOf:
       - type: string
@@ -32,41 +35,54 @@ properties:
           - $ref: Organization.yaml
   copyrightNotice:
     type: string
+    format: text
   copyrightYear:
     type: string
-    description: date-time ISO 8601
+    format: text
+    description:  ISO 8601 date time format
   countryOfOrigin:
     type: string
+    format: text
   creativeWorkStatus:
     type: string
+    format: text
   dateCreated:
     type: string
-    description: date-time ISO 8601
+    format: text
+    description: ISO 8601 date time format
   dateModified:
     type: string
-    description: date-time ISO 8601
+    format: text
+    description: ISO 8601 date time format
   datePublished:
     type: string
-    description: date-time ISO 8601
+    format: text
+    description: ISO 8601 date time format
   genre:
     type: array
     items:
       type: string
+      format: text
   headline:
     type: string
+    format: text
   inLanguage:
     type: array
     items:
       type: string
+      format: text
   keywords:
     type: array
     items:
       type: string
+      format: text
   license:
     type: string
+    format: text
   recordedAt:
     oneOf:
       - type: string
+      
       - type: object
         properties:
           eventID:
@@ -78,22 +94,28 @@ properties:
           - eventName
   alternateName:
     type: string
+    format: text
   description:
     type: string
+    format: text
   name:
     type: string
+    format: text
   sameAs:
     type: array
     items: 
       type: string
+      format: text
   url:
     type: string
     format: uri
   managedBy:
     type: object
     $ref: ManagedBy.yaml
+
 required:
-  - CreativeWorkID
+  - creativeWorkID
+  - copyrightNotice
   - countryOfOrigin
   - description
   - name

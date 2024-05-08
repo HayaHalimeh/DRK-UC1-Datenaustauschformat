@@ -1,0 +1,41 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Event About Relationships
+description: A schema for detailing what an event is about, linking it to various entities.
+type: object
+properties:
+  event_about_relationships:
+    type: array
+    items:
+      type: object
+      properties:
+        event_id:
+          type: integer
+          description: The unique identifier of the event.
+        about_id:
+          type: integer
+          description: The unique identifier of the entity the event is about.
+        about_type:
+          type: string
+          description: Specifies the type of the entity.
+          enum:
+            - Person
+            - Event
+            - TouristAttraction
+            - Organization
+            - CreativeWork
+            - Location
+    example:
+      event_about_relationships:
+      - event_id: 101
+        about_id: 1
+        about_type: Person
+      - event_id: 102
+        about_id: 2
+        about_type: Event
+      - event_id: 103
+        about_id: 3
+        about_type: TouristAttraction
+required:
+  - event_id
+  - about_id
+  - about_type

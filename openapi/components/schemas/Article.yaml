@@ -4,9 +4,11 @@ description: An article is a piece of written work published in a print or elect
   medium.
 type: object
 properties:
-  ArticleID:
+  articleID:
     type: string
-    description:  id_region_PlattformName_entityName_originalID
+    description:  Pattern id_region_PlattformName_entityName_originalID
+    format: text
+
   articleBody:
     type: array
     items:
@@ -35,22 +37,29 @@ properties:
           - type
   copyrightNotice:
     type: string
+    format: text
   copyrightYear:
     type: string
+    format: text
   genre:
     type: array
     items:
       type: string
+      format: text
   headline:
     type: string
+    format: text
   inLanguage:
     type: string
+    format: text
   isAccessibleForFree:
     type: boolean
+    format: boolean
   keywords:
     type: array
     items:
       type: string
+      format: text
   license:
     type: string
     format: uri
@@ -74,7 +83,7 @@ properties:
     type: object
     $ref: ManagedBy.yaml
 required:
-  - ArticleID
+  - articleID
   - articleBody
   - name
   - url

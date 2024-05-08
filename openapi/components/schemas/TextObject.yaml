@@ -2,14 +2,16 @@ $schema: http://json-schema.org/draft-07/schema#
 title: TextObject
 description: An text file associated with the item.
 type: object
-
 properties:
   mediaObjectAttributes:
     allOf: 
       - $ref: MediaObject.yaml
       - type: object
+
   publication:
     type: string
+    format: text
+
   publisher:
     oneOf:
       - type: string
@@ -20,5 +22,7 @@ properties:
           - $ref: 'Person.yaml'
   text:
     type: string
+    format: text
+
 required:
   - text

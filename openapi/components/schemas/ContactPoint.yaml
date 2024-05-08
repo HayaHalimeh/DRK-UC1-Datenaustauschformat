@@ -5,31 +5,39 @@ type: object
 properties:
   areaServed:
     type: string
+    format: text
   availableLanguage:
     type: array
     items:
       type: string
+      format: text
       
   contactType:
     type: string
+    format: text
     description:  A sales contact point, a PR contact point and so on
   email:
     type: string
     format: email
   hoursAvailable:
     type: string
+    format: text
   url:
     type: string
     format: uri
   description:
     type: string
+    format: text
   name:
     type: string
+    format: text
   telephone:
     type: string
+    format: text
     description: E.164-Format
   faxNumber:
     type: string
+    format: text
     description: E.164-Format
   socialMedia:
     type: array

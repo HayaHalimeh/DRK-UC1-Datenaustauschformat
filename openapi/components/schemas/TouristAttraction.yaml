@@ -3,44 +3,59 @@ title: TouristAttraction
 description: A tourist attraction.
 type: object
 properties:
-  TouristAttractionID:
+  touristAttractionID:
     oneOf:
       - type: object
         properties:
           type:
-            const: PropertyValue
+            type: string
           value:
             type: string
         required:
           - type
           - value
       - type: string
-        description: id_region_PlattformName_entityName_originalID
+        description: Pttern id_region_PlattformName_entityName_originalID
+
   location:
     type: object
     $ref: Location.yaml
+
   accessibility:
+    description: Extended attribute
     type: array
     items: 
       type: string
+      format: text
+
   type:
     type: string
+    format: text
+
   description:
     type: string
+    format: text
+
   name:
     type: string
+    format: text
+
   sameAs:
     type: array
     items: 
       type: string  
+      format: text
+
   contactPoint:
     type: object
     $ref: ContactPoint.yaml
+
   managedBy:
+    description: Information about the management resposible for data or data exchnge. Extended attribute
     type: object
     $ref: ManagedBy.yaml
 
 required:
-  - TouristAttractionID
+  - touristAttractionID
   - location
   - name

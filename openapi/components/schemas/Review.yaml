@@ -3,39 +3,51 @@ title: Review
 description: A review of an item - for example, a restaurant, movie, or store.
 type: object
 properties:
-  ReviewID:
+  reviewID:
     oneOf:
       - type: string
-        pattern: id_region_PlattformName_entityName_originalID
+        format: text
+        description: Pattern id_region_PlattformName_entityName_originalID
 
   reviewAspect:
     type: string
+    format: text
   reviewBody:
     oneOf:
       - type: string
       - type: object
         $ref: TextObject.yaml
+
   ratingValue:
     type: number
+    format: text
   reviewExplanation:
     type: string
+    format: text
   author:
     type: object
     $ref: CustomerProfile.yaml
   dateCreated:
     type: string
-    description: date-time ISO 8601
+    description: ISO 8601 time format
+    format: date-time
+
   dateModified:
     type: string
-    description: date-time ISO 8601
+    description: ISO 8601 time format
+    format: date-time
+
   inLanguage:
     type: array
     items:
       type: string
+      format: text
+
   mentions:
     type: array
     items:
       type: string
+      format: text
   url:
     type: string
     format: uri
@@ -48,8 +60,9 @@ properties:
   managedBy:
     type: object
     $ref: ManagedBy.yaml
+    description: Information about the management resposible for data or data exchnge. Extended attribute
 required:
-  - ReviewID
+  - reviewID
   - reviewBody
   - ratingValue
   - author

@@ -1,0 +1,51 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Media Object Associations
+description: A schema for detailing the associations of media objects with various other entities.
+type: object
+properties:
+  media_object_associations:
+    type: array
+    items:
+      type: object
+      properties:
+        media_object_id:
+          type: integer
+          description: The unique identifier of the media object.
+        associated_id:
+          type: integer
+          description: The unique identifier of the associated entity (DBObject, Tourist Attraction, Event, etc.).
+        associated_type:
+          type: string
+          description: Specifies the type of the associated entity.
+          enum:
+            - DBObject
+            - TouristAttraction
+            - Event
+            - Article
+            - Organization
+            - Person
+            - Location
+            - Review
+            - CreativeWork
+        role:
+          type: string
+          description: Specifies the role of the association.
+          default: associatedWith
+    example:
+      media_object_associations:
+      - media_object_id: 101
+        associated_id: 1
+        associated_type: DBObject
+        role: associatedWith
+      - media_object_id: 102
+        associated_id: 2
+        associated_type: TouristAttraction
+        role: associatedWith
+      - media_object_id: 103
+        associated_id: 3
+        associated_type: Event
+        role: associatedWith
+required:
+  - media_object_id
+  - associated_id
+  - associated_type

@@ -1,9 +1,9 @@
 $schema: http://json-schema.org/draft-07/schema#
 title: CustomerProfile
-description: A customer's profile containing their details.
+description: A customer's profile containing their details. TODO Add details
 type: object
 properties:
-  VendorProfileID:
+  customerProfileID:
     type: string
     pattern: id_region_PlattformName_entityName_originalID
   name:

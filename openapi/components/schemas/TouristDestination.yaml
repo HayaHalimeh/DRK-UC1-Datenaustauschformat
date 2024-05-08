@@ -8,19 +8,23 @@ properties:
     $ref: OpeningHoursSpecification.yaml
   publicAccess:
     type: boolean
+    format: boolean
   location:
     type: object
     $ref: Location.yaml
   name:
     type: string
+    format: text
   description:
     type: string
+    format: text
   contactPoint:
     type: object
     $ref: ContactPoint.yaml
   managedBy:
     type: object
     $ref: ManagedBy.yaml
+    description: Information about the management resposible for data or data exchnge. Extended attribute
 required:
   - location
   - name

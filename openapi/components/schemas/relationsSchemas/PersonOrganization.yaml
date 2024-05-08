@@ -1,0 +1,39 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Person to Organization Roles
+description: A schema for detailing the roles persons hold within various organizations.
+type: object
+properties:
+  person_organization_relationships:
+    type: array
+    items:
+      type: object
+      properties:
+        person_id:
+          type: integer
+          description: The unique identifier of a person.
+        organization_id:
+          type: integer
+          description: The unique identifier of an organization.
+        roles:
+          type: array
+          items:
+            type: string
+            description: Specifies the role of the person within the organization.
+            enum:
+              - founder
+              - employee
+              - sponsor
+              - funder
+              - alumniOf
+    example:
+      person_organization_relationships:
+      - person_id: 1
+        organization_id: 101
+        roles:
+          - founder
+          - sponsor
+      
+required:
+  - person_id
+  - organization_id
+  - roles

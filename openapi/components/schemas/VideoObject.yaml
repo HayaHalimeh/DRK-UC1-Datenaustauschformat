@@ -8,31 +8,42 @@ properties:
     allOf: 
       - $ref: MediaObject.yaml
       - type: object
-  MediaObjectID:
-    type: string
-    pattern: id_region_PlattformName_entityName_originalID
+
+
   caption:
     type: string
+    format: text
+
   transcript:
     type: string
+    format: text
+
   videoQuality:
     type: string
-    description: ^\d+p$
+    format: text
+    description: Pattern ^\d+p$
+
   endTime:
     type: string
     description:  ISO 8601 time format
+    format: date-time
+
   duration:
     type: string
-    description:  Assuming ISO 8601 time
-      format for consistency
+    description:  ISO 8601 time format 
+    format: date-time
+
   startTime:
     type: string
     description:  ISO 8601 time format
+    format:   date-time
+    
   video:
     oneOf:
       - type: object
         properties:
           content:
+            format: binary
             description: "Direct embedded video content. This field is expected to carry raw video data. Note: Actual implementation should handle this property as raw binary data, which is not typically supported directly in JSON. Consider using application-specific encoding or structuring."
         required:
           - content

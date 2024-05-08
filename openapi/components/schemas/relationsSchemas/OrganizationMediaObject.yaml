@@ -1,0 +1,49 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Organization to Media Object Roles
+description: A schema for detailing the roles organizations hold in relation to media objects.
+type: object
+properties:
+  organization_media_object_relationships:
+    type: array
+    items:
+      type: object
+      properties:
+        organization_id:
+          type: integer
+          description: The unique identifier of the organization.
+        media_object_id:
+          type: integer
+          description: The unique identifier of the media object.
+        roles:
+          type: array
+          items:
+            type: string
+            description: Specifies the role of the organization with respect to the media object.
+            enum:
+              - organizationLogo
+              - ownedBy
+              - producer
+              - musicBy
+              - director
+              - thumbnail
+    example:
+      organization_media_object_relationships:
+      - organization_id: 1
+        media_object_id: 101
+        roles:
+          - organizationLogo
+          - ownedBy
+      - organization_id: 2
+        media_object_id: 102
+        roles:
+          - producer
+          - musicBy
+      - organization_id: 3
+        media_object_id: 103
+        roles:
+          - director
+          - thumbnail
+required:
+  - organization_id
+  - media_object_id
+  - roles

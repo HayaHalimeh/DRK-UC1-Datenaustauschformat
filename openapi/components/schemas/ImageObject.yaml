@@ -9,23 +9,32 @@ properties:
     allOf: 
       - $ref: MediaObject.yaml
       - type: object
+
   caption:
     type: string
+    format: text
+
   height:
     type: string
     description: Height of the image in pixels.
+    format: text
+
   width:
     type: string
     description: Width of the image in pixels.
+    format: text
+
   image:
     oneOf:
       - type: object
         properties:
           content:
+            format: binary
             description: "Direct embedded image content. This field is expected to carry raw image data. Note: Actual implementation should handle this property as raw binary data, which is not typically supported directly in JSON. Consider using application-specific encoding or structuring."
         required:
           - content
       - type: string
         format: uri
+        
 required:
   - image

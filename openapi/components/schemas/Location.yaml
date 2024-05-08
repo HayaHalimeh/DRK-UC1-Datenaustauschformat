@@ -5,43 +5,74 @@ type: object
 properties:
   isAccessibleForFree:
     type: boolean
+    format: boolean
+
   maximumAttendeeCapacity:
     type: integer
+    format: int32
+
   openingHoursSpecification:
+    description: The opening hours of a certain place.
     type: object
     $ref: OpeningHoursSpecification.yaml
+
   publicAccess:
     type: boolean
+    format: boolean
+
   smokingAllowed:
     type: boolean
+    format: boolean
+
   alternateName:
     type: string
+    format: text
+
   description:
     type: string
+    format: text
+
   name:
     type: string
+    format: text
+
   sameAs:
     type: array
     items: 
       type: string 
+      format: text
+
   address:
     type: object
     $ref: PostalAddress.yaml
+
   maximumPhysicalAttendeeCapacity:
     type: integer
+    format: int32
+
   maximumVirtualAttendeeCapacity:
     type: integer
+    format: int32
+
   remainingAttendeeCapacity:
     type: integer
+    format: int32
+
   contactPoint:
     type: object
     $ref: ContactPoint.yaml
+
   locationType:
-    type: string
+    description: Type of location, e.g. Galeria, Museum, Library, etc. Extended attribute
+    format: text
+
   accessibility:
+    description: Extended attribute
     type: array
     items:
       type: string
+      format: text
+
 required:
   - isAccessibleForFree
   - address

@@ -1,0 +1,71 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Person to Creative Work Roles
+description: A schema for detailing the roles persons hold in relation to various creative works.
+type: object
+properties:
+  person_creative_work_relationships:
+    type: array
+    items:
+      type: object
+      properties:
+        person_id:
+          type: integer
+          description: The unique identifier of a person.
+        creative_work_id:
+          type: integer
+          description: The unique identifier of a creative work.
+        roles:
+          type: array
+          items:
+            type: object
+            properties:
+              role:
+                type: string
+                description: Specifies the role of the person with respect to the creative work.
+                enum:
+                  - author
+                  - contributor
+                  - translator
+                  - sponsor
+                  - producer
+                  - provider
+                  - maintainer
+                  - publisher
+                  - creator
+                  - funder
+                  - editor
+                  - copyrightHolder
+              details:
+                type: string
+                description: Additional details about the role, e.g., specific contributions, terms, etc.
+
+    example:
+      person_creative_work_relationships:
+      - person_id: 1
+        creative_work_id: 101
+        roles:
+          - role: author
+            details: "Wrote the first draft of the manuscript."
+          - role: editor
+            details: "Provided feedback on the final draft."
+      - person_id: 2
+        creative_work_id: 102
+        roles:
+          - role: author
+            details: "Wrote the first draft of the manuscript."
+          - role: editor
+            details: "Provided feedback on the final draft."
+      - person_id: 3
+        creative_work_id: 103
+        roles:
+          - role: translator
+            details: "Translated the work from English to Spanish."
+          - role: editor
+            details: "Provided feedback on the final draft."
+
+
+    
+required:
+  - person_id
+  - creative_work_id
+  - roles

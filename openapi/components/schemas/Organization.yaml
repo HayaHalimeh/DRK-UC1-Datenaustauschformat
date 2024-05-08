@@ -3,61 +3,94 @@ title: Organization
 description: A business or organization.
 type: object
 properties:
-  organisationID:
+  organizationID:
     oneOf:
       - type: object
         properties:
           type:
-            const: PropertyValue
+            type: string
           value:
             type: string
         required:
           - type
           - value
       - type: string
-        description: id_region_PlattformName_entityName_originalID
+        description: Pattern id_region_PlattformName_entityName_originalID
+        format: text
+
   department:
     type: string
+    format: text
+
   foundingDate:
     type: string
-    description: in the format ISO 8601
+    description: ISO 8601 time format
+    format: date-time
 
   foundingLocation:
+    description: postal address of the founding location of the organization
     type: object
     $ref: PostalAddress.yaml
+
   funding:
     type: string
+    format: text
+
   iso6523Code:
     type: string
+    format: text
+
   knowsLanguage:
     type: array
     items:
       type: string
+      format: text
+
   legalName:
     type: string
+    format: text
+
   location:
+    description: Extended attribute
     type: object
     $ref: Location.yaml
+
   nonprofitStatus:
     type: boolean
+    format: boolean
+
   additionalType:
     type: string
+    format: text
+
   alternateName:
     type: string
+    format: text
+
   description:
     type: string
+    format: text
+
   name:
     type: string
+    format: text
+
   sameAs:
     type: array
     items: 
       type: string
+      format: text
+
   contactPoint:
     type: object
     $ref: ContactPoint.yaml
+
   managedBy:
+    description: Information about the management resposible for data or data exchnge. Extended attribute
     type: object
     $ref: ManagedBy.yaml
+    
 required:
+  - contactPoint
   - location
   - name

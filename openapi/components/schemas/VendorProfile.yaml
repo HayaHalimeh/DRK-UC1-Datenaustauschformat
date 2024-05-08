@@ -1,13 +1,14 @@
 $schema: http://json-schema.org/draft-07/schema#
 title: VendorProfile
-description: A vendor's profile containing their details.
+description: A vendor's profile containing their details. Extended entity
 type: object
 properties:
-  VendorProfileID:
+  vendorProfileID:
     type: string
-    pattern: id_region_PlattformName_entityName_originalID
+    description: Pattern id_region_PlattformName_entityName_originalID
   name:
     type: string
+    format: text
   profileUrl:
     type: string
     format: uri
@@ -17,5 +18,5 @@ properties:
       - type: object
 additionalProperties: false
 required:
-  - VendorProfileID
+  - vendorProfileID
   - name

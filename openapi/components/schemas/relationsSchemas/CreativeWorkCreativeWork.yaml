@@ -1,0 +1,40 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Creative Work Relationships
+description: A schema for detailing relationships between creative works, such as parts, translations, and bases of works.
+type: object
+properties:
+  creative_work_relationships:
+    type: array
+    items:
+      type: object
+      properties:
+        creative_work_id:
+          type: integer
+          description: The unique identifier of the primary creative work.
+        related_creative_work_id:
+          type: integer
+          description: The unique identifier of the related creative work.
+        relationship_type:
+          type: string
+          description: Specifies the type of relationship between the two creative works.
+          enum:
+            - hasPart
+            - isPartOf
+            - subjectOf
+            - isBasedOn
+            - translationOfWork
+    example:
+      creative_work_relationships:
+      - creative_work_id: 101
+        related_creative_work_id: 102
+        relationship_type: hasPart
+      - creative_work_id: 102
+        related_creative_work_id: 103
+        relationship_type: isPartOf
+      - creative_work_id: 103
+        related_creative_work_id: 101
+        relationship_type: isBasedOn
+required:
+  - creative_work_id
+  - related_creative_work_id
+  - relationship_type

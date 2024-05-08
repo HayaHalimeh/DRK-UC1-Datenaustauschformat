@@ -1,0 +1,47 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Person to Tourist Attraction Roles
+description: A schema for detailing the roles persons hold in relation to tourist attractions.
+type: object
+properties:
+  person_tourist_attraction_relationships:
+    type: array
+    items:
+      type: object
+      properties:
+        person_id:
+          type: integer
+          description: The unique identifier of a person.
+        tourist_attraction_id:
+          type: integer
+          description: The unique identifier of a tourist attraction.
+        roles:
+          type: array
+          items:
+            type: string
+            description: Specifies the role of the person with respect to the tourist attraction.
+            enum:
+              - organizer
+              - sponsor
+              - contributor
+              - director
+              - funder
+    example:
+      person_tourist_attraction_relationships:
+      - person_id: 1
+        tourist_attraction_id: 101
+        roles:
+          - organizer
+          - sponsor
+      - person_id: 2
+        tourist_attraction_id: 102
+        roles:
+          - contributor
+      - person_id: 3
+        tourist_attraction_id: 103
+        roles:
+          - director
+          - funder
+required:
+  - person_id
+  - tourist_attraction_id
+  - roles

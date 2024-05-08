@@ -1,13 +1,16 @@
 $schema: http://json-schema.org/draft-07/schema#
 title: MediaObject
-description: A media object, such as an image, video, or audio object.
+description: Media objects are digital objects that can be exchanged between different platforms and have own licenses and agreements.
+      
 type: object
 properties:
-  MediaObjectID:
+  mediaObjectID:
     type: string
-    description: of pattern id_region_PlattformName_entityName_originalID.
+    format: text
+    description: Pattern id_region_PlattformName_entityName_originalID.
   encodingFormat:
     type: string
+    format: text
     enum: 
       - audio
       - image
@@ -15,10 +18,17 @@ properties:
       - video
   accessMode:
     type: string
+    format: text
+    description: The accessibility mode of the media object, e.g. MP3, MP4, JPEG, etc.
+
   archivedAt:
     type: string
+    format: text
+
   comment:
     type: string
+    format: text
+
   copyrightHolder:
     oneOf:
       - type: string
@@ -26,22 +36,35 @@ properties:
         oneOf:
           - $ref: Person.yaml
           - $ref: Organization.yaml
+
   copyrightNotice:
     type: string
+    format: text
+
   copyrightYear:
     type: string
+    format: text
+
   countryOfOrigin:
     type: string
+    format: text
+
   genre:
     type: array
     items:
       type: string
+      format: text
+
   inLanguage:
     type: string
+    format: text
+
   keywords:
     type: array
     items:
       type: string
+      format: text
+
   translationOfWork:
     type: array
     items:
@@ -51,15 +74,23 @@ properties:
         - $ref: MediaObject.yaml
         - type: string
           description: URL or ID of the translated work
+
   description:
     type: string
+    format: text
+
   name:
     type: string
+    format: text
+
   sameAs:
     type: string
     format: uri
+
   productionCompany:
     type: string
+    format: text
+
   recordedAt:
     oneOf:
       - type: string
@@ -71,9 +102,15 @@ properties:
             type: string
         required:
           - eventID
+
   managedBy:
+    description: Information about the management responsible for data or data exchange. Extended attribute
     allOf:
       - $ref: ManagedBy.yaml
       - type: object
     
+required:
+  - mediaObjectID
+  - encodingFormat
+  - copyrightNotice
 

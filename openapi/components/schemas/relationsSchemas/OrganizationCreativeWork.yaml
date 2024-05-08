@@ -1,0 +1,54 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Organization to Creative Work Roles
+description: A schema for detailing the roles organizations hold in relation to various creative works.
+type: object
+properties:
+  organization_creative_work_relationships:
+    type: array
+    items:
+      type: object
+      properties:
+        organization_id:
+          type: integer
+          description: The unique identifier of an organization.
+        creative_work_id:
+          type: integer
+          description: The unique identifier of a creative work.
+        roles:
+          type: array
+          items:
+            type: string
+            description: Specifies the role of the organization with respect to the creative work.
+            enum:
+              - author
+              - contributor
+              - translator
+              - sponsor
+              - producer
+              - provider
+              - maintainer
+              - publisher
+              - creator
+              - funder
+              - editor
+              - copyrightHolder
+    example:
+      organization_creative_work_relationships:
+      - organization_id: 1
+        creative_work_id: 101
+        roles:
+          - author
+          - editor
+      - organization_id: 2
+        creative_work_id: 102
+        roles:
+          - author
+      - organization_id: 3
+        creative_work_id: 103
+        roles:
+          - translator
+          - editor
+required:
+  - organization_id
+  - creative_work_id
+  - roles

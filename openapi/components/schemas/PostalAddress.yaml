@@ -5,21 +5,29 @@ type: object
 properties:
   streetAddress:
     type: string
+    format: text
   postalCode:
     type: string
+    format: text
   addressLocality:
     type: string
-    description: City
+    format: text
+    description: Pattern City
+
   addressRegion:
     type: string
+    format: text
   addressCountry:
     type: string
+    format: text
   latitude:
     type: string
-    description: Latitude must be in WGS 84 format
+    description: WGS 84 format
+    format: text
   longitude:
     type: string
-    description: Longitude must be in WGS 84 format
+    description: WGS 84 format
+    format: text
 required:
   - streetAddress
   - postalCode

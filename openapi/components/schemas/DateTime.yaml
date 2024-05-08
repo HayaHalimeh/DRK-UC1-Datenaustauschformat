@@ -6,60 +6,70 @@ properties:
   checkinTime:
     type: string
     format: date-time
-    description: in the format ISO 8601 #YYYY-MM-DDTHH:MM:SSZ
+    description: ISO 8601 date time format #YYYY-MM-DDTHH:MM:SSZ
   checkoutTime:
     type: string
     format: date-time
-    description: in the format ISO 8601
+    description: ISO 8601 date time format
+    
   dateCreated:
     type: string
     format: date-time
-    description: in the format ISO 8601
+    description: ISO 8601 date time format
   dateDeleted:
     type: string
     format: date-time
-    description: in the format ISO 8601
+    description: ISO 8601 date time format
   dateModified:
     type: string
     format: date-time
-    description: in the format ISO 8601
+    description: ISO 8601 date time format
   doorTime:
     type: string
     format: date-time
-    description: in the format ISO 8601
+    description: ISO 8601 date time format
   endDate:
     type: string
     format: date-time
-    description: in the format ISO 8601
+    description: ISO 8601 date time format
   endTime:
     type: string
     format: date-time
-    description: in the format ISO 8601
+    description: ISO 8601 date time format
   startDate:
     type: string
     format: date-time
-    description: in the format ISO 8601
+    description: ISO 8601 date time format
   startTime:
     type: string
     format: date-time
-    description: in the format ISO 8601
+    description: ISO 8601 date time format
   descriptionDateSpecific:
     type: string
+    format: text
+    description: "e.g. Reservierungen sind ab dem 1. April möglich."
   inLocation:
     type: object
     $ref: "Location.yaml"
+    
   highPrice:
     type: string
+    format: text
     description: Price Currency, e.g. 20.00 EUR
   lowPrice:
     type: string
+    format: text
     description: Price Currency e.g. 10.00 EUR
+    
   ticketUrl:
     type: string
     format: uri
+    description: Extended attribute
+
   reservationLink:
     type: string
     format: uri
+    description: Extended attribute
 required:
   - startDate
   - startTime

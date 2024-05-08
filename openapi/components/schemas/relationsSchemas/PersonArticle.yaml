@@ -1,0 +1,47 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Person to Article Roles
+description: A schema for detailing the roles persons hold in relation to articles.
+type: object
+properties:
+  person_article_relationships:
+    type: array
+    items:
+      type: object
+      properties:
+        person_id:
+          type: integer
+          description: The unique identifier of a person.
+        article_id:
+          type: integer
+          description: The unique identifier of an article.
+        roles:
+          type: array
+          items:
+            type: string
+            description: Specifies the role of the person with respect to the article.
+            enum:
+              - author
+              - editor
+              - translator
+              - publisher
+              - copyrightHolder
+    example:
+      person_article_relationships:
+      - person_id: 1
+        article_id: 101
+        roles:
+          - author
+          - editor
+      - person_id: 2
+        article_id: 102
+        roles:
+          - author
+      - person_id: 3
+        article_id: 103
+        roles:
+          - translator
+          - editor
+required:
+  - person_id
+  - article_id
+  - roles

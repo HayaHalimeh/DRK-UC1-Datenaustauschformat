@@ -3,17 +3,21 @@ title: Person
 description: 'A person: An artist.'
 type: object
 properties:
-  PersonID:
+  personID:
     type: string
+    format: text
   additionalName:
     type: string
+    format: text
   location:
+    description: 'The postal address for communication.'
     type: object
     $ref: PostalAddress.yaml
   award:
     type: array
     items:
       type: string
+      format: text
   birthDate:
     type: string
     format: date-time
@@ -29,12 +33,16 @@ properties:
     description: ISO 8601 date format
   gender:
     type: string
+    format: text
   jobTitle:
     type: string
+    format: text
   description:
     type: string
+    format: text
   name:
     type: string
+    format: text
   managedBy:
     type: object
     $ref: ManagedBy.yaml
@@ -42,5 +50,5 @@ properties:
     type: object
     $ref: ContactPoint.yaml
 required:
-  - PersonID
+  - personID
   - name

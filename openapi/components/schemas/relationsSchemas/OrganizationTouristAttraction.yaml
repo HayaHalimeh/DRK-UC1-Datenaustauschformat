@@ -1,0 +1,47 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Organization to Article Roles
+description: A schema for detailing the roles organizations hold in relation to articles.
+type: object
+properties:
+  organization_article_relationships:
+    type: array
+    items:
+      type: object
+      properties:
+        organization_id:
+          type: integer
+          description: The unique identifier of an organization.
+        article_id:
+          type: integer
+          description: The unique identifier of an article.
+        roles:
+          type: array
+          items:
+            type: string
+            description: Specifies the role of the organization with respect to the article.
+            enum:
+              - author
+              - editor
+              - translator
+              - publisher
+              - copyrightHolder
+    example:
+      organization_article_relationships:
+      - organization_id: 1
+        article_id: 101
+        roles:
+          - author
+          - editor
+      - organization_id: 2
+        article_id: 102
+        roles:
+          - author
+      - organization_id: 3
+        article_id: 103
+        roles:
+          - translator
+          - editor
+required:
+  - organization_id
+  - article_id
+  - roles
