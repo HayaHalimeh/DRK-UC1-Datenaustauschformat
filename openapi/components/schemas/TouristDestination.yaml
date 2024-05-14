@@ -13,11 +13,11 @@ properties:
     type: object
     $ref: Location.yaml
   name:
-    type: string
-    format: text
+    type: object
+    $ref: Text.yaml
   description:
-    type: string
-    format: text
+    type: object
+    $ref: Text.yaml
   contactPoint:
     type: object
     $ref: ContactPoint.yaml

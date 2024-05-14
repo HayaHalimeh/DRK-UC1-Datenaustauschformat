@@ -1,0 +1,17 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Event
+description: A schema for describing an event.
+type: object
+properties:
+  description:
+    type: object
+    properties:
+      en:
+        type: string
+        example: A detailed description of the event.
+      de:
+        type: string
+        example: Eine detaillierte Beschreibung der Veranstaltung.
+      fr:
+        type: string
+        example: Une description détaillée de l'événement.

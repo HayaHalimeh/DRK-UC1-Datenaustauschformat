@@ -33,12 +33,12 @@ properties:
     format: text
 
   description:
-    type: string
-    format: text
+    type: object
+    $ref: Text.yaml
 
   name:
-    type: string
-    format: text
+    type: object
+    $ref: Text.yaml
 
   sameAs:
     type: array

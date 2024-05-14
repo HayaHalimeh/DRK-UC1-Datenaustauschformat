@@ -16,6 +16,8 @@ properties:
     oneOf:
       - type: string
       - type: object
+        $ref: Text.yaml
+      - type: object
         $ref: TextObject.yaml
 
   ratingValue:

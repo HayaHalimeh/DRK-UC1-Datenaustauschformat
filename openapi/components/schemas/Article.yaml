@@ -17,6 +17,7 @@ properties:
         - $ref: AudioObject.yaml
         - $ref: VideoObject.yaml
         - $ref: ImageObject.yaml
+       
     
   speakable:
     type: string
