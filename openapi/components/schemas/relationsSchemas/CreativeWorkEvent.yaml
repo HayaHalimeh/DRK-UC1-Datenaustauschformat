@@ -3,6 +3,9 @@ title: Creative Work to Event Roles
 description: A schema for detailing the roles creative works hold in relation to events.
 type: object
 properties:
+  "@type":
+    type: string
+    const: CreativeWorkEventRelationships
   creative_work_event_relationships:
     type: array
     items:
@@ -39,6 +42,7 @@ properties:
         roles:
           - subjectOf
 required:
+  - "@type"
   - creative_work_id
   - event_id
   - roles

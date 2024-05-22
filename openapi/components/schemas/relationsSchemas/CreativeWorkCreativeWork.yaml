@@ -3,6 +3,9 @@ title: Creative Work Relationships
 description: A schema for detailing relationships between creative works, such as parts, translations, and bases of works.
 type: object
 properties:
+  "@type":
+    type: string
+    const: CreativeWorkRelationships
   creative_work_relationships:
     type: array
     items:
@@ -35,6 +38,7 @@ properties:
         related_creative_work_id: 101
         relationship_type: isBasedOn
 required:
+  - "@type"
   - creative_work_id
   - related_creative_work_id
   - relationship_type

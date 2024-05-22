@@ -3,6 +3,9 @@ title: Media Object Associations
 description: A schema for detailing the associations of media objects with various other entities.
 type: object
 properties:
+  "@type":
+    type: string
+    const: MediaObjectAssociations
   media_object_associations:
     type: array
     items:
@@ -46,6 +49,7 @@ properties:
         associated_type: Event
         role: associatedWith
 required:
+  - "@type"
   - media_object_id
   - associated_id
   - associated_type

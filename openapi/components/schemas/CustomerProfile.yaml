@@ -3,6 +3,9 @@ title: CustomerProfile
 description: A customer's profile containing their details. TODO Add details
 type: object
 properties:
+  "@type":
+    type: string
+    const: CustomerProfile
   customerProfileID:
     type: string
     pattern: id_region_PlattformName_entityName_originalID
@@ -16,3 +19,8 @@ properties:
       - $ref: Account.yaml
       - type: object
 additionalProperties: false
+required:
+  - "@type"
+  - customerProfileID
+  - name
+  - account

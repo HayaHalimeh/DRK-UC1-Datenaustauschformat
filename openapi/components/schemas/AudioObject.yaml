@@ -4,6 +4,9 @@ description: An audio file.
 type: object
 
 properties:
+  "@type":
+    type: string
+    const: AudioObject
   mediaObjectAttributes:
     allOf: 
       - $ref: MediaObject.yaml
@@ -44,4 +47,5 @@ properties:
       - type: string
         format: uri
 required:
+  - "@type"
   - audio

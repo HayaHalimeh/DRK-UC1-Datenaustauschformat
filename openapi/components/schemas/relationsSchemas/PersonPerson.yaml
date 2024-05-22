@@ -3,6 +3,9 @@ title: Person Organization Roles
 description: A schema for describing the roles of persons in various organizations.
 type: object
 properties:
+  "@type":
+    type: string
+    const: PersonOrganizationRoles
   person_organization_roles:
     type: array
     items:
@@ -36,4 +39,5 @@ properties:
         roles:
           - employee
 required:
+  - "@type"
   - person_organization_roles

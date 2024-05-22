@@ -3,6 +3,9 @@ title: Location
 description: A location
 type: object
 properties:
+  "@type":
+    type: string
+    const: Location
   isAccessibleForFree:
     type: boolean
     format: boolean
@@ -74,6 +77,7 @@ properties:
       format: text
 
 required:
+  - "@type"
   - isAccessibleForFree
   - address
   - name

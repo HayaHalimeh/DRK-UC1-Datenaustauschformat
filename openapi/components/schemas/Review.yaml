@@ -3,6 +3,9 @@ title: Review
 description: A review of an item - for example, a restaurant, movie, or store.
 type: object
 properties:
+  "@type":
+    type: string
+    const: Review
   reviewID:
     oneOf:
       - type: string
@@ -64,6 +67,7 @@ properties:
     $ref: ManagedBy.yaml
     description: Information about the management resposible for data or data exchnge. Extended attribute
 required:
+  - "@type"
   - reviewID
   - reviewBody
   - ratingValue

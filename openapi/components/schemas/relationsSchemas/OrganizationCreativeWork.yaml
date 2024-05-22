@@ -3,6 +3,9 @@ title: Organization to Creative Work Roles
 description: A schema for detailing the roles organizations hold in relation to various creative works.
 type: object
 properties:
+  "@type":
+    type: string
+    const: OrganizationCreativeWorkRelationships
   organization_creative_work_relationships:
     type: array
     items:
@@ -49,6 +52,7 @@ properties:
           - translator
           - editor
 required:
+  - "@type"
   - organization_id
   - creative_work_id
   - roles

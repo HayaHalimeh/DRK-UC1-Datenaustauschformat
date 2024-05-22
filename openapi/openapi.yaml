@@ -4,11 +4,14 @@ info:
   title: Data Transfer Exchange UC1 
   contact:
     name: Contact our support
-    #email: Ariane@example.com #Ariane
+    #email: ariane@example.com
     email: haya.halimeh@uni-paderborn.de
+  
+    
   license:
     name: The MIT License (MIT)
     url: 'https://opensource.org/licenses/MIT'
+    
   
   x-logo:
       url: 'https://raw.githubusercontent.com/HayaHalimeh/DRK-UC1-Datenaustauschformat/main/openapi/logo.png'
@@ -30,7 +33,7 @@ info:
     All other fields are optional.
 
     \n\n
-    !!Work in progress!! This documentation is still under construction and will be updated regularly."
+    !!Work in progress!!"
 
 security:
   - apiKey: [] 
@@ -61,30 +64,25 @@ x-tagGroups:
       - TextObject
       - VideoObject
     
-
   - name: External Resources
     description: External resources that are linked to the data exchange format.
     tags:
-      - name: Article
-        description: Operations related to articles.
-      - name: DDB-Object
-        description: Operations related to DDB objects.
+      - Article
+      - DDB-Object
+
 
   - name: TouristObjects
     description: Tourist destinations are locations that are visited by tourists, e.g. restaurants, hotels, cafes, etc.
     tags:
-      - name: TouristDestination
+      - TouristDestination
         
 
   - name: Personalization
     description: Entities that are used for personalization and user behavior
     tags:
-      - name: Account
-        description: Operations related to user accounts.
-      - name: CustomerProfile
-        description: Operations related to customer profiles.
-      - name: Review
-        description: Operations related to reviews.
+      - Account
+      - CustomerProfile
+      - Review
     
 
   - name: Relations

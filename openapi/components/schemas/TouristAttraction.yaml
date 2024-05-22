@@ -3,6 +3,9 @@ title: TouristAttraction
 description: A tourist attraction.
 type: object
 properties:
+  "@type":
+    type: string
+    const: TouristAttraction
   touristAttractionID:
     oneOf:
       - type: object
@@ -56,6 +59,7 @@ properties:
     $ref: ManagedBy.yaml
 
 required:
+  - "@type"
   - touristAttractionID
   - location
   - name

@@ -4,6 +4,9 @@ title: Organization to Event Roles
 description: A schema for detailing the roles organizations hold in relation to events.
 type: object
 properties:
+  "@type":
+    type: string
+    const: OrganizationEventRelationships
   organization_event_relationships:
     type: array
     items:
@@ -51,6 +54,7 @@ properties:
           - performer
           - translator
 required:
+  - "@type"
   - organization_id
   - event_id
   - roles

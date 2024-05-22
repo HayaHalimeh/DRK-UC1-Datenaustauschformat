@@ -3,6 +3,9 @@ title: TouristDestination
 description: A tourist destination.
 type: object
 properties:
+  "@type":
+    type: string
+    const: TouristDestination
   openingHoursSpecification:
     type: object
     $ref: OpeningHoursSpecification.yaml
@@ -26,6 +29,7 @@ properties:
     $ref: ManagedBy.yaml
     description: Information about the management resposible for data or data exchnge. Extended attribute
 required:
+  - "@type"
   - location
   - name
   

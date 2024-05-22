@@ -3,6 +3,9 @@ title: OpeningHoursSpecification
 description: This is a schema for OpeningHoursSpecification.
 type: object
 properties:
+  "@type":
+    type: string
+    const: OpeningHoursSpecification
   closes:
     type: string
     format: text
@@ -31,5 +34,9 @@ properties:
   url:
     type: string
     format: uri
+
+required:
+  - "@type"
+  
 
 

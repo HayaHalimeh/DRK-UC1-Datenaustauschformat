@@ -4,6 +4,9 @@ description: An article is a piece of written work published in a print or elect
   medium.
 type: object
 properties:
+  "@type":
+    type: string
+    const: Article
   articleID:
     type: string
     description:  Pattern id_region_PlattformName_entityName_originalID
@@ -84,6 +87,7 @@ properties:
     type: object
     $ref: ManagedBy.yaml
 required:
+  - "@type"
   - articleID
   - articleBody
   - name

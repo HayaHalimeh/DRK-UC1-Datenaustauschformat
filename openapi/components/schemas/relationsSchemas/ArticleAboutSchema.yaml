@@ -3,6 +3,9 @@ title: Article About Relationships
 description: A schema for detailing what an article is about, linking it to various entities.
 type: object
 properties:
+  "@type":
+    type: string
+    const: ArticleAboutRelationships
   article_about_relationships:
     type: array
     items:
@@ -36,6 +39,7 @@ properties:
         about_id: 3
         about_type: TouristAttraction
 required:
+  - "@type"
   - article_id
   - about_id
   - about_type

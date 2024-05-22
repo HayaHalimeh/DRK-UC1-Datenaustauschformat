@@ -3,6 +3,9 @@ type: object
 title: Account
 description: An account represents a user's account in the system.
 properties:
+  "@type":
+    type: string
+    const: Account
   accountID:
     type: string
     description: Pattern id_region_PlattformName_entityName_originalID
@@ -27,5 +30,6 @@ properties:
       - $ref: ManagedBy.yaml
       - type: object
 required:
+  - "@type"
   - accountID
   - email

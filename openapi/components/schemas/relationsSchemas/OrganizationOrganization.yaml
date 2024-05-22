@@ -3,6 +3,9 @@ title: Organization to Organization Relationships
 description: A schema for detailing relationships between organizations, such as membership and hierarchical links.
 type: object
 properties:
+  "@type":
+    type: string
+    const: OrganizationOrganizationRelationships
   organization_relationships:
     type: array
     items:
@@ -33,6 +36,7 @@ properties:
         related_organization_id: 103
         relationship_type: subOrganization
 required:
+  - "@type"
   - organization_id
   - related_organization_id
   - relationship_type

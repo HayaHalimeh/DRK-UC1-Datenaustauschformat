@@ -4,6 +4,10 @@
     "title": "Account",
     "description": "An account represents a user's account in the system.",
     "properties": {
+        "@type": {
+            "type": "string",
+            "const": "Account"
+        },
         "accountID": {
             "type": "string",
             "pattern": "id_region_PlattformName_entityName_originalID"

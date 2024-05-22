@@ -3,6 +3,9 @@ title: Person to Organization Roles
 description: A schema for detailing the roles persons hold within various organizations.
 type: object
 properties:
+  "@type":
+    type: string
+    const: PersonOrganizationRelationships
   person_organization_relationships:
     type: array
     items:
@@ -34,6 +37,7 @@ properties:
           - sponsor
       
 required:
+  - "@type"
   - person_id
   - organization_id
   - roles

@@ -3,6 +3,9 @@ title: Organization to Article Roles
 description: A schema for detailing the roles organizations hold in relation to articles.
 type: object
 properties:
+  "@type":
+    type: string
+    const: OrganizationArticleRelationships
   organization_article_relationships:
     type: array
     items:
@@ -42,6 +45,7 @@ properties:
           - translator
           - editor           
 required:
+  - "@type"
   - organization_id
   - article_id
   - roles

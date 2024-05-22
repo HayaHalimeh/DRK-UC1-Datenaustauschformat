@@ -3,6 +3,9 @@ title: Event
 description: A schema for describing an event.
 type: object
 properties:
+  "@type":
+    type: string
+    const: Event
   eventID:
     oneOf:
       - type: object
@@ -128,6 +131,7 @@ properties:
     type: object
     $ref: ManagedBy.yaml
 required:
+  - "@type"
   - eventID
   - name
   - eventDateTime

@@ -3,6 +3,9 @@ title: Person to Article Roles
 description: A schema for detailing the roles persons hold in relation to articles.
 type: object
 properties:
+  "@type":
+    type: string
+    const: PersonArticleRelationships
   person_article_relationships:
     type: array
     items:
@@ -42,6 +45,7 @@ properties:
           - translator
           - editor
 required:
+  - "@type"
   - person_id
   - article_id
   - roles

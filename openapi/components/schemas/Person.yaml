@@ -3,6 +3,9 @@ title: Person
 description: 'A person: An artist.'
 type: object
 properties:
+  "@type":
+    type: string
+    const: Person
   personID:
     type: string
     format: text
@@ -50,5 +53,6 @@ properties:
     type: object
     $ref: ContactPoint.yaml
 required:
+  - "@type"
   - personID
   - name

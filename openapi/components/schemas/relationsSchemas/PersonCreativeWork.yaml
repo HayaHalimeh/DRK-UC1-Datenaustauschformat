@@ -3,6 +3,9 @@ title: Person to Creative Work Roles
 description: A schema for detailing the roles persons hold in relation to various creative works.
 type: object
 properties:
+  "@type":
+    type: string
+    const: PersonCreativeWorkRelationships
   person_creative_work_relationships:
     type: array
     items:
@@ -66,6 +69,7 @@ properties:
 
     
 required:
+  - "@type"
   - person_id
   - creative_work_id
   - roles

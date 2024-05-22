@@ -3,6 +3,9 @@ title: DDBObject
 description: A DDBObjekt represents a digital object that is managed by the DDB. Extended entity.
 type: object
 properties:
+  "@type":
+    type: string
+    const: DDBObject
   DDBObjectID:
     type: string
     format: text
@@ -35,5 +38,6 @@ properties:
     type: object
     $ref: ManagedBy.yaml
 required:
+  - "@type"
   - DDBObjectID
   - url

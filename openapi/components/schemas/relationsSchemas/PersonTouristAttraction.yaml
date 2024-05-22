@@ -3,6 +3,9 @@ title: Person to Tourist Attraction Roles
 description: A schema for detailing the roles persons hold in relation to tourist attractions.
 type: object
 properties:
+  "@type":
+    type: string
+    const: PersonTouristAttractionRelationships
   person_tourist_attraction_relationships:
     type: array
     items:
@@ -42,6 +45,7 @@ properties:
           - director
           - funder
 required:
+  - "@type"
   - person_id
   - tourist_attraction_id
   - roles

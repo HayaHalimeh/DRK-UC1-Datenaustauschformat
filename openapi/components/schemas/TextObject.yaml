@@ -3,6 +3,9 @@ title: TextObject
 description: An text file associated with the item.
 type: object
 properties:
+  "@type":
+    type: string
+    const: TextObject
   mediaObjectAttributes:
     allOf: 
       - $ref: MediaObject.yaml
@@ -25,4 +28,5 @@ properties:
     format: text
 
 required:
+  - "@type"
   - text

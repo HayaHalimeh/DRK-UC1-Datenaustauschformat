@@ -3,6 +3,9 @@ title: Organization
 description: A business or organization.
 type: object
 properties:
+  "@type":
+    type: string
+    const: Organization
   organizationID:
     oneOf:
       - type: object
@@ -91,6 +94,7 @@ properties:
     $ref: ManagedBy.yaml
     
 required:
+  - "@type"
   - contactPoint
   - location
   - name

@@ -3,6 +3,9 @@ title: ManagedBy
 description: The ManagedBy object represents the entity that manages the managed entity. Extended entity.
 type: object
 properties:
+  "@type":
+    type: string
+    const: ManagedBy
   dateCreated:
     type: string
     format: date-time
@@ -30,5 +33,6 @@ properties:
     type: string
     format: text
 required:
+  - "@type"
   - dateCreated
   - dateModified
