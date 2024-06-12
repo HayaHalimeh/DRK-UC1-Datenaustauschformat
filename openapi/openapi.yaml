@@ -33,7 +33,7 @@ info:
     All other fields are optional.
 
     Media objects are digital objects that can be exchanged between different platforms and have own licenses and agreements.
-    To send all kinds of media objects with other entites (e.g. events, etc.), see the [Media Objects](#tag/MediaObjectsAssociations) section.
+    To send all kinds of media objects with other entites (e.g. events, etc.), see the [MediaObjectsAssociations](#operation/getMediaObjectsAssociations) section.
 
     \n\n
     !!Work in progress!!"
