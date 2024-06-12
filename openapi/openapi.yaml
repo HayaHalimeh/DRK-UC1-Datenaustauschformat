@@ -32,6 +32,9 @@ info:
     The Data Transfer Exchange Format can be served in its minimum viable format as a JSON file. Fields that are required are marked as such. 
     All other fields are optional.
 
+    Media objects are digital objects that can be exchanged between different platforms and have own licenses and agreements.
+    To send all kinds of media objects with other entites (e.g. events, etc.), see the [Media Objects](#tag/MediaObjectsAssociations) section.
+
     \n\n
     !!Work in progress!!"
 
@@ -94,7 +97,7 @@ x-tagGroups:
       - CreativeWorkCreativeWork
       - EventAbout
       - EventPerson
-      - MediaObjectDDB
+      - MediaObjectAssociations
       - OrganizationArticle
       - OrganizationCreativeWork
       - OrganizationEvent
@@ -562,17 +565,17 @@ paths:
   /media-object-ddb:
     get: 
       tags: 
-        -  MediaObjectDDB
+        -  MediaObjectAssociations
       summary: Provides public information about media objects
       description: "To exchange information about media objects. A media object is a digital object, e.g. image, video, audio, etc."
-      operationId: getMediaObjectDDB
+      operationId: getMediaObjectAssociations
       responses: 
         "200":
           description: successful operation
           content:
             application/json:
               schema:
-                $ref: components/schemas/relationsSchemas/MediaObjectDDB.yaml
+                $ref: components/schemas/relationsSchemas/MediaObjectAssociations.yaml
         "400":
           description: Invalid status value
 

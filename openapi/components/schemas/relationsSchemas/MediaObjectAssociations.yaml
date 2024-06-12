@@ -32,7 +32,7 @@ properties:
             - CreativeWork
         role:
           type: string
-          description: Specifies the role of the association.
+          description: Specifies the role of the association, such as 'associatedWith', 'logo', 'thumbnail', etc.
           default: associatedWith
     example:
       media_object_associations:
@@ -43,7 +43,7 @@ properties:
       - media_object_id: 102
         associated_id: 2
         associated_type: TouristAttraction
-        role: associatedWith
+        role: logo
       - media_object_id: 103
         associated_id: 3
         associated_type: Event
