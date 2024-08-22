@@ -5,15 +5,15 @@ type: object
 properties:
   "@type":
     type: string
-    const: OrganizationArticleRelationships
-  organization_article_relationships:
+    const: ArticleOrganizationRelationships
+  article_organization_relationships:
     type: array
     items:
       type: object
       properties:
-        article_id:
+        organization_id:
           type: integer
-          description: The unique identifier of an article.
+          description: The unique identifier of an organization.
         roles:
           type: array
           items:
@@ -26,18 +26,18 @@ properties:
               - publisher
               - copyrightHolder
     example:
-      - article_id: 101
+      - organization_id: 1
         roles:
           - author
           - editor
-      - article_id: 102
+      - organization_id: 2
         roles:
           - author
-      - article_id: 103
+      - organization_id: 3
         roles:
           - translator
           - editor           
 required:
   - "@type"
-  - article_id
+  - organization_id
   - roles

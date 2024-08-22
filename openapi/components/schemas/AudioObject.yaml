@@ -46,6 +46,8 @@ properties:
           - content
       - type: string
         format: uri
+
+  
 required:
   - "@type"
   - audio

@@ -11,9 +11,6 @@ properties:
     items:
       type: object
       properties:
-        person_id:
-          type: integer
-          description: The unique identifier of a person.
         article_id:
           type: integer
           description: The unique identifier of an article.
@@ -29,23 +26,18 @@ properties:
               - publisher
               - copyrightHolder
     example:
-      person_article_relationships:
-      - person_id: 1
-        article_id: 101
+      - article_id: 101
         roles:
           - author
           - editor
-      - person_id: 2
-        article_id: 102
+      - article_id: 102
         roles:
           - author
-      - person_id: 3
-        article_id: 103
+      - article_id: 103
         roles:
           - translator
           - editor
 required:
   - "@type"
-  - person_id
   - article_id
   - roles

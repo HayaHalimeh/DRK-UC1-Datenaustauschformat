@@ -5,20 +5,20 @@ type: object
 properties:
   "@type":
     type: string
-    const: OrganizationTouristAttractionRelationships
-  organization_tourist_attraction_relationships:
+    const: TouristAttractionOrganizationRelationships
+  tourist_attraction_organization_relationships:
     type: array
     items:
       type: object
       properties:
-        tourist_attraction_id:
+        organization_id:
           type: integer
-          description: The unique identifier of a tourist attraction.
+          description: The unique identifier of an organization.
         roles:
           type: array
           items:
             type: string
-            description: Specifies the role of the organization with respect to the tourist attractions.
+            description: Specifies the role of the organization with respect to the article.
             enum:
               - organizer
               - sponsor
@@ -26,17 +26,17 @@ properties:
               - director
               - funder
     example:
-      - tourist_attraction_id: 101
+      - organization_id: 1
         roles:
           - organizer
-      - tourist_attraction_id: 102
+      - organization_id: 2
         roles:
-          - sponsor
-      - tourist_attraction_id: 103
+          - director
+      - organization_id: 3
         roles:
+          - contributor
           - funder
-          - sponsor
 required:
   - "@type"
-  - tourist_attraction_id
+  - organization_id
   - roles

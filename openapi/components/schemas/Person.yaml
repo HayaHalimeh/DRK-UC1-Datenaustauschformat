@@ -52,6 +52,32 @@ properties:
   contactPoint:
     type: object
     $ref: ContactPoint.yaml
+
+  relationship_personArticle:
+    type: object
+    $ref: relationsSchemas/PersonArticle.yaml
+  
+  relationship_personCreativeWork:
+    type: object
+    $ref: relationsSchemas/PersonCreativeWork.yaml
+  
+  relationship_personEvent:
+    type: object
+    $ref: relationsSchemas/PersonEvent.yaml
+  
+  relationship_personOrganization:
+    type: object
+    $ref: relationsSchemas/PersonOrganization.yaml
+  
+  relationship_personPerson:
+    type: object
+    $ref: relationsSchemas/PersonPerson.yaml
+  
+  relationship_personTouristAttraction:
+    type: object
+    $ref: relationsSchemas/PersonTouristAttraction.yaml
+
+    
 required:
   - "@type"
   - personID

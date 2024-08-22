@@ -5,15 +5,15 @@ type: object
 properties:
   "@type":
     type: string
-    const: OrganizationCreativeWorkRelationships
-  organization_creative_work_relationships:
+    const: CreativeWorkOrganizationRelationships
+  creative_work_organization_relationships:
     type: array
     items:
       type: object
       properties:
-        creative_work_id:
+        organization_id:
           type: integer
-          description: The unique identifier of a creative work.
+          description: The unique identifier of an organization.
         roles:
           type: array
           items:
@@ -33,18 +33,19 @@ properties:
               - editor
               - copyrightHolder
     example:
-      - creative_work_id: 101
+      - organization_id: 1
         roles:
           - author
           - editor
-      - creative_work_id: 102
+      - organization_id: 2
         roles:
           - author
-      - creative_work_id: 103
+      - organization_id: 3
         roles:
           - translator
           - editor
+          
 required:
   - "@type"
-  - creative_work_id
+  - organization_id
   - roles

@@ -11,9 +11,6 @@ properties:
     items:
       type: object
       properties:
-        person_id:
-          type: integer
-          description: The unique identifier for a primary person.
         related_person_id:
           type: integer
           description: The unique identifier for a related person.
@@ -29,13 +26,11 @@ properties:
               - funder
               - alumniOf
     example:
-      - person_id: 1
-        related_person_id: 101
+      - related_person_id: 101
         roles:
           - founder
           - sponsor
-      - person_id: 2
-        related_person_id: 101
+      - related_person_id: 101
         roles:
           - employee
 required:

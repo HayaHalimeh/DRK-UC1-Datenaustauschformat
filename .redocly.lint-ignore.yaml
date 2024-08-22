@@ -2,4 +2,4 @@
 # See https://redoc.ly/docs/cli/ for more information.
 openapi/openapi.yaml:
   security-defined:
-    - '#/security/0/apiKey'
+    - '#/security/0/apiKeyAuth'

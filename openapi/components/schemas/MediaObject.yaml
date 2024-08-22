@@ -75,7 +75,6 @@ properties:
       oneOf: 
         - $ref: CreativeWork.yaml
         - $ref: MediaObject.yaml
-        - type: string
           description: URL or ID of the translated work
 
   description:
@@ -112,6 +111,7 @@ properties:
       - $ref: ManagedBy.yaml
       - type: object
     
+  
 required:
   - "@type"
   - mediaObjectID

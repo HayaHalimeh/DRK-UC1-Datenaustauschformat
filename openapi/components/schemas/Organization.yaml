@@ -93,6 +93,33 @@ properties:
     type: object
     $ref: ManagedBy.yaml
     
+ 
+  
+  relationship_organizationArticle:
+    type: object
+    $ref: relationsSchemas/OrganizationArticle.yaml
+    
+  relationship_organizationCreativeWork:
+    type: object
+    $ref: relationsSchemas/OrganizationCreativeWork.yaml
+  
+  relationship_organizationEvent:
+    type: object
+    $ref: relationsSchemas/OrganizationEvent.yaml
+ 
+  relationship_organizationOrganization:
+    type: object
+    $ref: relationsSchemas/OrganizationOrganization.yaml
+  
+  relationship_organizationTouristAttraction:
+    type: object
+    $ref: relationsSchemas/OrganizationTouristAttraction.yaml
+
+  relationship_organizationPerson:
+    type: object
+    $ref: relationsSchemas/OrganizationPerson.yaml
+  
+    
 required:
   - "@type"
   - contactPoint

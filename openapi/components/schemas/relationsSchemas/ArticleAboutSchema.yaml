@@ -11,9 +11,6 @@ properties:
     items:
       type: object
       properties:
-        article_id:
-          type: integer
-          description: The unique identifier of the article.
         about_id:
           type: integer
           description: The unique identifier of the entity the article is about.
@@ -28,15 +25,11 @@ properties:
             - CreativeWork
             - Location
     example:
-      article_about_relationships:
-      - article_id: 101
-        about_id: 1
+      - about_id: 1
         about_type: Person
-      - article_id: 102
-        about_id: 2
+      - about_id: 2
         about_type: Event
-      - article_id: 103
-        about_id: 3
+      - about_id: 3
         about_type: TouristAttraction
 required:
   - "@type"

@@ -33,9 +33,21 @@ properties:
         role:
           type: string
           description: Specifies the role of the association, such as 'associatedWith', 'logo', 'thumbnail', etc.
-          default: associatedWith
+          enum: 
+            - associatedWith
+            - logo
+            - ownedBy
+            - producer
+            - musicBy
+            - director
+            - thumbnail
+            - author
+            - actor
+            - director
+            - ownedBy
+            - producer
+            
     example:
-      media_object_associations:
       - media_object_id: 101
         associated_id: 1
         associated_type: DBObject

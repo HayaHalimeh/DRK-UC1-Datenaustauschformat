@@ -5,15 +5,15 @@ type: object
 properties:
   "@type":
     type: string
-    const: CreativeWorkEventRelationships
-  creative_work_event_relationships:
+    const: EventCreativeWorkRelationships
+  event_creative_work_relationships:
     type: array
     items:
       type: object
       properties:
-        event_id:
+        creative_work_id:
           type: integer
-          description: The unique identifier of the event.
+          description: The unique identifier of the creative work.
         roles:
           type: array
           items:
@@ -25,16 +25,17 @@ properties:
               - subjectOf
 
     example:
-      - event_id: 201
+      - creative_work_id: 101
         roles:
           - workFeatured
-      - event_id: 202
+      - creative_work_id: 102
         roles:
           - workPerformed
-      - event_id: 203
+      - creative_work_id: 103
+        event_id: 203
         roles:
           - subjectOf
 required:
   - "@type"
-  - event_id
+  - creative_work_id
   - roles

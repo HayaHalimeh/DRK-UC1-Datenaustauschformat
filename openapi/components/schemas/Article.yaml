@@ -70,11 +70,9 @@ properties:
   translationOfWork:
     type: array
     items:
-      type: object
-      oneOf: 
-        - $ref: CreativeWork.yaml
-        - $ref: Article.yaml
-
+      oneOf:
+        - $ref: './CreativeWork.yaml'
+        - $ref: './Article.yaml'
         - type: string
           description: URL or ID of the translated work
   sameAs:
@@ -86,6 +84,24 @@ properties:
   managedBy:
     type: object
     $ref: ManagedBy.yaml
+
+  relationship_articleAbout:
+    type: object
+    $ref: relationsSchemas/ArticleAboutSchema.yaml
+  
+  relationship_articleArticle:
+    type: object
+    $ref: relationsSchemas/ArticleArticle.yaml
+  
+  relationship_articlePerson:
+    type: object
+    $ref: relationsSchemas/ArticlePerson.yaml
+  
+  relationship_articleOrganization:
+    type: object
+    $ref: relationsSchemas/ArticleOrganization.yaml
+  
+
 required:
   - "@type"
   - articleID

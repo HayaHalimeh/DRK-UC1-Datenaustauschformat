@@ -6,15 +6,15 @@ type: object
 properties:
   "@type":
     type: string
-    const: OrganizationEventRelationships
-  organization_event_relationships:
+    const: EventOrganizationRelationships
+  event_organization_relationships:
     type: array
     items:
       type: object
       properties:
-        event_id:
+        organization_id:
           type: integer
-          description: The unique identifier of an event.
+          description: The unique identifier of an organization.
         roles:
           type: array
           items:
@@ -35,18 +35,18 @@ properties:
               - attendee
               - funder
     example:
-      - event_id: 101
+      - organization_id: 1
         roles:
           - performerIn
           - director
-      - event_id: 102
+      - organization_id: 2
         roles:
           - organizer
-      - event_id: 103
+      - organization_id: 3
         roles:
           - performer
           - translator
 required:
   - "@type"
-  - event_id
+  - organization_id
   - roles

@@ -1,7 +1,6 @@
 $schema: http://json-schema.org/draft-07/schema#
 title: CreativeWork
-description: 'A creative work: an article, essay, painting, software application,
-  etc.'
+description: 'A creative work: an article, essay, painting, software application, etc.'
 type: object
 properties:
   "@type":
@@ -116,6 +115,27 @@ properties:
     type: object
     $ref: ManagedBy.yaml
 
+  relationship_creativeWorkAbout:
+      type: object
+      $ref: relationsSchemas/CreativeWorkAboutSchema.yaml
+
+  relationship_creativeWorkCreativeWork:
+      type: object
+      $ref: relationsSchemas/CreativeWorkCreativeWork.yaml
+
+  relationship_creativeWorkEvent:
+      type: object
+      $ref: relationsSchemas/CreativeWorkEvent.yaml
+
+  relationship_creativeWorkPerson:
+    type: object
+    $ref: relationsSchemas/CreativeWorkPerson.yaml
+  
+  relationship_creativeWorkOrganization:
+    type: object
+    $ref: relationsSchemas/CreativeWorkOrganization.yaml
+  
+    
 required:
   - "@type"
   - creativeWorkID

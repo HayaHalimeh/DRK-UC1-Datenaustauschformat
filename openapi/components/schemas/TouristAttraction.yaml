@@ -58,6 +58,14 @@ properties:
     type: object
     $ref: ManagedBy.yaml
 
+  relationship_touristAttractionPerson:
+    type: object
+    $ref: relationsSchemas/TouristAttractionPerson.yaml
+
+  relationship_touristAttractionOrganization:
+    type: object
+    $ref: relationsSchemas/TouristAttractionOrganization.yaml
+    
 required:
   - "@type"
   - touristAttractionID

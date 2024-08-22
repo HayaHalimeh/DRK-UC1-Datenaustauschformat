@@ -4,7 +4,6 @@ info:
   title: Data Transfer Exchange UC1 
   contact:
     name: Contact our support
-    #email: ariane@example.com
     email: haya.halimeh@uni-paderborn.de
   
     
@@ -18,30 +17,25 @@ info:
       backgroundColor: '#FFFFFF'
 
   description: 
-    "This is an online documentation for the data exchange format of the DRK-UC1 project.
+    "This is an online documentation of the Data Transfer Exchange Format of the DRK-UC1 project.
     \n\n
     The Data Transfer Exchange Format for UC1 is an artifact that aims to provide a structured format for data transfer between different cultural platforms.
     \n\n
 
-    The schemas build on and extend [Schema.org] (https://schema.org/), a collaborative, community activity with a mission to create, maintain, and promote schemas for structured data on the Internet, on web pages, in email messages, and beyond.
-    New entities or attributes that do not exist in Schema.org are marked as such (extended entity or extended attribute). Please refer to Schema.org for more details 
-    on Data Transfer Exchange UC1. 
+    The schemas of the entities of the Data Transfer Exchange Format build on and extend [Schema.org] (https://schema.org/), a collaborative, community activity with a mission to create, maintain, and promote schemas for structured data on the Internet, on web pages, in email messages, and beyond.
+    New entities or attributes that do not exist in Schema.org are marked as such (i.e. extended entity or extended attribute). Please refer to Schema.org for more details about the entities and/or attributes.    \n\n
+    For a detailed visual representation of of the Data Transfer Exchange Format , see our [Data Model Diagram](#operation/getDiagram).
     \n\n
-    For a detailed visual representation of our Data Model schema, see our [Data Model Diagram](#operation/getDiagram).
-    \n\n
-    The Data Transfer Exchange Format can be served in its minimum viable format as a JSON file. Fields that are required are marked as such. 
-    All other fields are optional.
+    Please Note: The Data Transfer Exchange Format can be served in its minimum viable format, i.e. Fields that are required are marked as such, all other fields are optional.
 
-    Media objects are digital objects that can be exchanged between different platforms and have own licenses and agreements.
-    To send all kinds of media objects with other entites (e.g. events, etc.), see the [MediaObjectsAssociations](#operation/getMediaObjectsAssociations) section.
-
-    \n\n
-    !!Work in progress!!"
+    Media objects are digital objects that can be exchanged between different platforms and have own licenses and privacy concerns.
+    To send all kinds of media objects with other entites (e.g. events, etc.), see the [MediaObjectAssociations](#operation/getMediaObjectAssociations) section.
+    "
 
 security:
-  - apiKey: [] 
-x-tagGroups:
+  - apiKeyAuth: []   
 
+x-tagGroups:
   - name: Diagram
     description: The Data Model schema provides a structured format for data transfer. Below is the ERD diagram illustrating the relationships.
     tags:
@@ -50,6 +44,7 @@ x-tagGroups:
   - name: General
     description: General entities that are part of the data exchange format
     tags:
+      - Account
       - CreativeWork
       - Event
       - Location
@@ -66,7 +61,8 @@ x-tagGroups:
       - ImageObject
       - TextObject
       - VideoObject
-    
+      - MediaObjectAssociations
+
   - name: External Resources
     description: External resources that are linked to the data exchange format.
     tags:
@@ -83,37 +79,10 @@ x-tagGroups:
   - name: Personalization
     description: Entities that are used for personalization and user behavior
     tags:
-      - Account
       - CustomerProfile
       - Review
     
 
-  - name: Relations
-    tags:  
-      - ArticleArticle
-      - ArticleAbout
-      - CreativeWorkAbout
-      - CreativeWorkEvent
-      - CreativeWorkCreativeWork
-      - EventAbout
-      - EventPerson
-      - MediaObjectAssociations
-      - OrganizationArticle
-      - OrganizationCreativeWork
-      - OrganizationEvent
-      - OrganizationMediaObject
-      - OrganizationOrganization
-      - OrganizationTouristAttraction
-      - PersonArticle
-      - PersonCreativeWork
-      - PersonMediaObject
-      - PersonOrganization
-      - PersonPerson      
-      - PersonTouristAttraction
-    description: "Entities that describe many-to-many relationships between different entities of the data exchange format"
-      
-
- 
 servers:
   - url: https://api.uc1-example.com/v1
 
@@ -314,6 +283,23 @@ paths:
         "400":
           description: Invalid status value
 
+  /media-object-associations:
+    get: 
+      tags: 
+        -  MediaObjectAssociations
+      summary: Provides public information about media objects
+      description: "To exchange information about media objects. A media object is a digital object, e.g. image, video, audio, etc."
+      operationId: getMediaObjectAssociations
+      responses: 
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: components/schemas/relationsSchemas/MediaObjectAssociations.yaml
+        "400":
+          description: Invalid status value
+
   /articles:
     get:
       tags:
@@ -337,7 +323,7 @@ paths:
       tags:
         - CreativeWork
       summary: Provides public information about creative works
-      description: "To exchnage information about creative works. A creative work is the creative art being introduced, presented, created or replicated in events or theather, etc. \\"
+      description: "To exchnage information about creative works. A creative work is the creative art being introduced, presented, created or replicated in events or theather, etc. "
       operationId: getCreativeWorks
       responses:
         "200":
@@ -459,338 +445,3 @@ paths:
         "400":
           description: Invalid status value
   
-  #relatioponships
-  /article-article:
-    get:
-      tags:
-        - ArticleArticle
-      summary: Retrieves a list of article-to-article relationships
-      description: Returns a list of all relationships between articles, such as citations or references.
-      operationId: listArticleArticleRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/ArticleArticle.yaml
-        "400":
-          description: Invalid status value
-
-  /article-about:
-    get:
-      tags:
-        - ArticleAbout
-      summary: Retrieves a list of article-to-topic relationships
-      description: Returns a list of all relationships between articles and their topics.
-      operationId: listArticleAboutRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/ArticleAboutSchema.yaml
-        "400":
-          description: Invalid status value
-          
-  /creative-work-events:
-    get: 
-      tags: 
-        -  CreativeWorkEvent
-      summary: Provides public information about creative works
-      description: "To exchange information about creative works. A creative work is the creative art being introduced, presented, created or replicated in events or theather, etc. \\"
-      operationId: getCreativeWorkEvents
-      responses: 
-        "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/CreativeWorkEvent.yaml
-        "400":
-          description: Invalid status value
-    
-  /creative-work-about:
-    get: 
-      tags: 
-        -  CreativeWorkAbout
-      summary:  Provides public information about creative works
-      description:  "To exchange information about creative works. A creative work is the creative art being introduced, presented, created or replicated in events or theather, etc. \\"
-      operationId: getCreativeWorkAbout
-      responses: 
-        "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/CreativeWorkAboutSchema.yaml
-        "400":
-          description: Invalid status value
-
-  /creative-work-creative-work:
-    get:
-      tags:
-        - CreativeWorkCreativeWork
-      summary: Retrieves a list of creative work-to-creative work relationships
-      description: Returns a list of all relationships between creative works, such as inspiration or adaptation.
-      operationId: listCreativeWorkCreativeWorkRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/CreativeWorkCreativeWork.yaml
-        "400":
-          description: Invalid status value
-
-  /event-about:
-    get:
-      tags:
-        - EventAbout
-      summary: Provides information about what events are about
-      description: "Retrieve data on the subjects or themes of various events, detailing their scope and content focus."
-      operationId: getEventAbout
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/EventAboutSchema.yaml
-        "400":
-          description: Invalid status value       
-
-  /media-object-ddb:
-    get: 
-      tags: 
-        -  MediaObjectAssociations
-      summary: Provides public information about media objects
-      description: "To exchange information about media objects. A media object is a digital object, e.g. image, video, audio, etc."
-      operationId: getMediaObjectAssociations
-      responses: 
-        "200":
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/MediaObjectAssociations.yaml
-        "400":
-          description: Invalid status value
-
-  /organization-article:
-    get:
-      tags:
-        - OrganizationArticle
-      summary: Provides information about articles related to organizations
-      description: "Fetch details on articles that are linked to specific organizations, showing collaborations or sponsorships."
-      operationId: getOrganizationArticle
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/OrganizationArticle.yaml
-        "400":
-          description: Invalid status value
-
-
-
-  /organization-creative-work:
-    get:
-      tags:
-        - OrganizationCreativeWork
-      summary: Retrieves a list of organization-to-creative-work relationships
-      description: Returns a list of all relationships between organizations and creative works, such as publications or collaborations.
-      operationId: listOrganizationCreativeWorkRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/OrganizationCreativeWork.yaml
-        "400":
-          description: Invalid status value
-
-  /organization-event:
-    get:
-      tags:
-        - OrganizationEvent
-      summary: Retrieves a list of organization-to-event relationships
-      description: Returns a list of all relationships between organizations and events, such as sponsors or hosts.
-      operationId: listOrganizationEventRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/OrganizationEvent.yaml
-        "400":
-          description: Invalid status value
-
-         
-
-          
-  /organization-media-object:
-    get:
-      tags:
-        - OrganizationMediaObject
-      summary: Retrieves a list of organization-to-media-object relationships
-      description: Returns a list of all relationships between organizations and media objects, such as publications or multimedia content produced by the organization.
-      operationId: listOrganizationMediaObjectRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/OrganizationMediaObject.yaml
-        "400":
-          description: Invalid status value
-
-          
-  /organization-organization:
-    get:
-      tags:
-        - OrganizationOrganization
-      summary: Retrieves a list of organization-to-organization relationships
-      description: Returns a list of all relationships between organizations, such as partnerships or subsidiaries.
-      operationId: listOrganizationOrganizationRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/OrganizationOrganization.yaml
-        "400":
-          description: Invalid status value
-         
-  /organization-tourist-attraction:
-    get:
-      tags:
-        - OrganizationTouristAttraction
-      summary: Retrieves a list of organization-to-tourist-attraction relationships
-      description: Returns a list of all relationships between organizations and tourist attractions, such as sponsorships or ownership.
-      operationId: listOrganizationTouristAttractionRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/OrganizationTouristAttraction.yaml
-        "400":
-          description: Invalid status value
- 
-         
-  /person-article:
-    get:
-      tags:
-        - PersonArticle
-      summary: Retrieves a list of person-to-article relationships
-      description: Returns a list of all relationships between people and articles, such as authorship or mentions.
-      operationId: listPersonArticleRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/PersonArticle.yaml
-        "400":
-          description: Invalid status value
-
-         
-  /person-creative-work:
-    get:
-      tags:
-        - PersonCreativeWork
-      summary: Retrieves a list of person-to-creative-work relationships
-      description: Returns a list of all relationships between people and creative works, such as authorship or creation.
-      operationId: listPersonCreativeWorkRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/PersonCreativeWork.yaml
-        "400":
-          description: Invalid status value
-          
-  /person-tourist-attraction:
-    get:
-      tags:
-        - PersonTouristAttraction
-      summary: Retrieves a list of person-to-tourist-attraction relationships
-      description: Returns a list of all person-to-tourist-attraction relationships, such as visited attractions.
-      operationId: listPersonTouristAttractionRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/PersonTouristAttraction.yaml
-        "400":
-          description: Invalid status value
-
-  /person-organization:
-    get:
-      tags:
-        - PersonOrganization
-      summary: Retrieves a list of person-to-organization relationships
-      description: Returns a list of all person-to-organization relationships, such as employment or membership.
-      operationId: listPersonOrganizationRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/PersonOrganization.yaml
-        "400":
-          description: Invalid status value
-
-  
-                                    
-  /person-person:
-    get:
-      tags:
-        - PersonPerson
-      summary: Retrieves a list of person-to-person relationships
-      description: Returns a list of all person-to-person relationships, such as friendships or professional connections.
-      operationId: listPersonPersonRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/PersonPerson.yaml
-        "400":
-          description: Invalid status value
-
-  /person-media-object:
-    get:
-      tags:
-        - PersonMediaObject
-      summary: Retrieves a list of person-to-media-object relationships
-      description: Returns a list of all relationships between people and media objects, such as contributions or mentions.
-      operationId: listPersonMediaObjectRelationships
-      responses:
-        "200":
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: components/schemas/relationsSchemas/PersonMediaObject.yaml
-        "400":
-          description: Invalid status value
-          
-

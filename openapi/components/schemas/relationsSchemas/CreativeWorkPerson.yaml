@@ -6,14 +6,14 @@ properties:
   "@type":
     type: string
     const: PersonCreativeWorkRelationships
-  person_creative_work_relationships:
+  creative_work_person_relationships:
     type: array
     items:
       type: object
       properties:
-        creative_work_id:
+        person_id:
           type: integer
-          description: The unique identifier of a creative work.
+          description: The unique identifier of a person.
         roles:
           type: array
           items:
@@ -40,19 +40,19 @@ properties:
                 description: Additional details about the role, e.g., specific contributions, terms, etc.
 
     example:
-      - creative_work_id: 101
+      - person_id: 1
         roles:
           - role: author
             details: "Wrote the first draft of the manuscript."
           - role: editor
             details: "Provided feedback on the final draft."
-      - creative_work_id: 102
+      - person_id: 2
         roles:
           - role: author
             details: "Wrote the first draft of the manuscript."
           - role: editor
             details: "Provided feedback on the final draft."
-      - creative_work_id: 103
+      - person_id: 3
         roles:
           - role: translator
             details: "Translated the work from English to Spanish."
@@ -63,5 +63,5 @@ properties:
     
 required:
   - "@type"
-  - creative_work_id
+  - person_id
   - roles

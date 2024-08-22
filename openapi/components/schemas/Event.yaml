@@ -126,10 +126,28 @@ properties:
   popularityScore:
     type: number
     format: float
+
   managedBy:
     description: Information about the management resposible for data or data exchnge. Extended attribute
     type: object
     $ref: ManagedBy.yaml
+
+  relationship_eventAbout:
+      type: object
+      $ref: relationsSchemas/EventAboutSchema.yaml
+      
+  relationship_eventPerson:
+      type: object
+      $ref: relationsSchemas/EventPerson.yaml
+    
+  relationship_eventOrganization:
+    type: object
+    $ref: relationsSchemas/EventOrganization.yaml
+  
+  relationship_eventCreativeWork:
+    type: object
+    $ref: relationsSchemas/EventCreativeWork.yaml
+  
 required:
   - "@type"
   - eventID

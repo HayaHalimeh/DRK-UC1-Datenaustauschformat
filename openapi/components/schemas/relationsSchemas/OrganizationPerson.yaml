@@ -5,15 +5,15 @@ type: object
 properties:
   "@type":
     type: string
-    const: PersonOrganizationRelationships
-  person_organization_relationships:
+    const: OrganizationPersonRelationships
+  organization_person_relationships:
     type: array
     items:
       type: object
       properties:
-        organization_id:
+        person_id:
           type: integer
-          description: The unique identifier of an organization.
+          description: The unique identifier of a person.
         roles:
           type: array
           items:
@@ -26,12 +26,12 @@ properties:
               - funder
               - alumniOf
     example:
-      - organization_id: 101
+      - person_id: 1
         roles:
           - founder
           - sponsor
       
 required:
   - "@type"
-  - organization_id
+  - person_id
   - roles

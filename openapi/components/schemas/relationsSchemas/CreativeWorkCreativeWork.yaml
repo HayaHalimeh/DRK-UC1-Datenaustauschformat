@@ -11,9 +11,6 @@ properties:
     items:
       type: object
       properties:
-        creative_work_id:
-          type: integer
-          description: The unique identifier of the primary creative work.
         related_creative_work_id:
           type: integer
           description: The unique identifier of the related creative work.
@@ -27,15 +24,11 @@ properties:
             - isBasedOn
             - translationOfWork
     example:
-      creative_work_relationships:
-      - creative_work_id: 101
-        related_creative_work_id: 102
+      - related_creative_work_id: 102
         relationship_type: hasPart
-      - creative_work_id: 102
-        related_creative_work_id: 103
+      - related_creative_work_id: 103
         relationship_type: isPartOf
-      - creative_work_id: 103
-        related_creative_work_id: 101
+      - related_creative_work_id: 101
         relationship_type: isBasedOn
 required:
   - "@type"

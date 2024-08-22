@@ -14,6 +14,9 @@ properties:
   profileUrl:
     type: string
     format: uri
+  preferences:
+    type: string
+    
   account:
     allOf:
       - $ref: Account.yaml

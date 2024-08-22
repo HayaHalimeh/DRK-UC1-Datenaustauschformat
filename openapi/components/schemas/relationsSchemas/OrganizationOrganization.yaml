@@ -11,9 +11,6 @@ properties:
     items:
       type: object
       properties:
-        organization_id:
-          type: integer
-          description: The unique identifier of the primary organization.
         related_organization_id:
           type: integer
           description: The unique identifier of the related organization.
@@ -25,18 +22,13 @@ properties:
             - parentOrganization
             - subOrganization
     example:
-      organization_relationships:
-      - organization_id: 1
-        related_organization_id: 101
+      - related_organization_id: 101
         relationship_type: memberOf
-      - organization_id: 2
-        related_organization_id: 102
+      - related_organization_id: 102
         relationship_type: parentOrganization
-      - organization_id: 3
-        related_organization_id: 103
+      - related_organization_id: 103
         relationship_type: subOrganization
 required:
   - "@type"
-  - organization_id
   - related_organization_id
   - relationship_type

@@ -11,9 +11,6 @@ properties:
     items:
       type: object
       properties:
-        article_id:
-          type: integer
-          description: The unique identifier of the primary article.
         related_article_id:
           type: integer
           description: The unique identifier of the related article.
@@ -24,15 +21,11 @@ properties:
             - isBasedOn
             - associatedArticle
     example:
-      article_relationships:
-      - article_id: 101
-        related_article_id: 102
+      - related_article_id: 102
         relationship_type: isBasedOn
-      - article_id: 102
-        related_article_id: 103
+      - related_article_id: 103
         relationship_type: associatedArticle
-      - article_id: 103
-        related_article_id: 101
+      - related_article_id: 101
         relationship_type: isBasedOn
 required:
   - "@type"
